@@ -10,7 +10,28 @@ Sedangkan library untuk project:
 > - Redux (Manajemen state)
 > - Axios (HTTP Client)
 
-## 2. Aturan commit dan push ke develop
+## 2. Project Structure
+    |--public
+    |--src
+        |-- componnent
+        |-- redux
+            |-- reducer
+                |-- reducer.name_reducer.js
+            |-- action
+                |-- action.payload.js
+                |-- action.nama_action.js
+            |-- store
+        |-- view
+            |-- nama_halaman/view
+            |-- index.js
+        |--utils
+            |-- constat.js
+    |-- .gitignore
+    |-- package.json
+    |-- README.md
+    |-- yarn.lock
+
+## 3. Aturan commit dan push ke develop
 > 1. Buat branch baru sesuai ticket di jira Ex: ES-nomor-jira
 > 2. git checkout ke branch baru
 > 3. git pull origin develop (pull di dalam branch yang baru di buat)
@@ -18,6 +39,10 @@ Sedangkan library untuk project:
 > 5. git add .
 > 6. git commit -m "[no_ticket] keterangan pekerjaan [username git]"
 > 7. git push origin nama_branch
-> 8. buat pull request ke develop dan assign ke akun @aditya37
+> 8. buat pull request ke develop dan assign ke akun @aditya37 @hafid29
 > 9. and happy coding
+
+## Update local branch
+> 1. git checkout develop
+> 2. git pull origin develop
 

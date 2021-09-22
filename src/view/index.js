@@ -1,4 +1,4 @@
 import Login from './login'
+import HomeView from './Home'
 
-
-export {Login}
+export {Login,HomeView}

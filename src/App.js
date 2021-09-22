@@ -1,7 +1,7 @@
-import {Login} from './view'
+import {Login,HomeView} from './view'
 function App() {
   return (
-    <Login/>
+    <HomeView/>
   );
 }
 

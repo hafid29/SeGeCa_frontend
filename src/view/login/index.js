@@ -1,46 +1,48 @@
-import { Navbar, Button, Container, Nav, NavDropdown } from "react-bootstrap";
-import { ComponentHeader } from "../../component";
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import LoginImage from '../../assets/login_image.jpeg'
 const LoginView = () => {
   return (
-    <div className="container">
-      <div className="row justify-content-center">
-        <div className="col-md-6">
-          <ComponentHeader title="Login" />
+    <div>
+      <Container fluid>
+        <div className="d-flex bd-highlight example-parent">
+          <div className="p-2 w-80 bd-highlight col-example">
+            <img src={LoginImage} />
+          </div>
+          <Row>
+            <Col
+              style={{
+                alignSelf: "center",
+              }}
+            >
+              <h1>Login</h1>
+              <Form>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Email address</Form.Label>
+                  <Form.Control type="email" placeholder="Enter email" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control type="password" placeholder="Password" />
+                </Form.Group>
 
-          <form>
-            <div className="form-group">
-              <label for="exampleInputEmail1">Username </label>
-              <input
-                type="email"
-                className="form-control"
-                placeholder="Masukan username anda"
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Password"
-              />
-            </div>
-            <div class="form-check">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="exampleCheck1"
-              />
-              <label className="form-check-label" for="exampleCheck1">
-                Check me out
-              </label>
-            </div>
-            <Button type="submit" class="btn btn-primary btn-lg btn-block">
-              Submit
-            </Button>
-          </form>
+                <Button
+                  variant="primary"
+                  type="submit"
+                  className="align-self-center"
+                  style={{
+                    marginTop:"10px",
+                    marginBottom:"5px",
+                    width: "60%",
+                    marginLeft: "20%",
+                  }}
+                >
+                  Submit
+                </Button>
+              </Form>
+            </Col>
+          </Row>
         </div>
-      </div>
+      </Container>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import { HomeView, Login } from "../view";
+import { HomeView, Login, Register } from "../view";
 const Routes = () => {
   return (
     <Switch>
@@ -16,7 +16,7 @@ const Routes = () => {
         <Login></Login>
       </Route>
       <Route path="/register">
-        <h1>Ini Halaman Register</h1>
+        <Register></Register>
       </Route>
     </Switch>
   );

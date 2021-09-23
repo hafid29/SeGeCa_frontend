@@ -1,7 +1,11 @@
-import {Login, HomeView, Register} from './view'
+import { Login, HomeView, ViewDashboard } from "./view";
+import Routes from "./route";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   return (
-    <HomeView/>
+    <Router>
+      <Routes></Routes>
+    </Router>
   );
 }
 

@@ -1,4 +1,4 @@
-import {Login,HomeView} from './view'
+import {Login, HomeView, Register} from './view'
 function App() {
   return (
     <HomeView/>

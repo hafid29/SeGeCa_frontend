@@ -3,9 +3,9 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
 } from "react-router-dom";
 import { HomeView, Login, Register } from "../view";
+import ViewDashboard from "../view/Dashboard";
 const Routes = () => {
   return (
     <Switch>
@@ -17,6 +17,9 @@ const Routes = () => {
       </Route>
       <Route path="/register">
         <Register></Register>
+      </Route>
+      <Route path="/dashboard">
+        <ViewDashboard></ViewDashboard>
       </Route>
     </Switch>
   );

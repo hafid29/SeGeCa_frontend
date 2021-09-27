@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { HomeView, Login, Register } from "../view";
 import ViewDashboard from "../view/Dashboard";
+import { ViewDashboardUser } from "../view";
 const Routes = () => {
   return (
     <Switch>
@@ -20,6 +21,9 @@ const Routes = () => {
       </Route>
       <Route path="/dashboard">
         <ViewDashboard></ViewDashboard>
+      </Route>
+      <Route path="/dashboarduser">
+        <ViewDashboardUser></ViewDashboardUser>
       </Route>
     </Switch>
   );

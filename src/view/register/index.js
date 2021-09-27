@@ -1,5 +1,6 @@
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import LoginImage from "../../assets/login_image.jpeg";
+import {Link} from 'react-router-dom'
 const RegisterView = () => {
   return (
     <div>
@@ -41,6 +42,19 @@ const RegisterView = () => {
                   }}
                 >
                   Submit
+                </Button>
+                <Button
+                  variant="primary"
+                  type="submit"
+                  className="align-self-center"
+                  style={{
+                    marginTop:"10px",
+                    marginBottom:"5px",
+                    width: "60%",
+                    height: "40px",
+                    marginLeft: "20%",
+                  }}
+                ><Link to="/"><p style={{color:"#ffffff"}}>Kembali</p></Link>
                 </Button>
               </Form>
             </Col>

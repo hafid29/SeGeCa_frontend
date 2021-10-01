@@ -4,7 +4,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { HomeView, Login, Register } from "../view";
+import { HomeView, Login, Register, FormDataUser } from "../view";
 import ViewDashboard from "../view/Dashboard";
 import { ViewDashboardUser } from "../view";
 const Routes = () => {
@@ -24,6 +24,9 @@ const Routes = () => {
       </Route>
       <Route path="/dashboarduser">
         <ViewDashboardUser></ViewDashboardUser>
+      </Route>
+      <Route path="/formdatauser">
+        <FormDataUser></FormDataUser>
       </Route>
     </Switch>
   );

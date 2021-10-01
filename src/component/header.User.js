@@ -11,8 +11,7 @@ import {
   NavBrand,
   NavMenu,
 } from "react-bootstrap";
-import LoginImage from "../../assets/login_image.jpeg";
-const ViewDashboardUser = () => {
+const HeaderUser = (props) => {
   return (
     <>
       <Row>
@@ -40,23 +39,7 @@ const ViewDashboardUser = () => {
           </Col>
         </Navbar>
       </Row>
-      <Row>
-        <Col md={6}>
-          <Row>
-            <Col>
-              <img src={LoginImage} />
-            </Col>
-            <Col>
-              <img src={LoginImage} />
-            </Col>
-          </Row>
-        </Col>
-        <Col md={6}>
-          Event info
-          <img src={LoginImage}/>
-        </Col>
-      </Row>
     </>
   );
 };
-export default ViewDashboardUser;
+export default HeaderUser;

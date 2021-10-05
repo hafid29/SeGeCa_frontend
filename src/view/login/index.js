@@ -1,8 +1,37 @@
+import React, { useState, useEffect } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import LoginImage from '../../assets/login_image.jpeg'
-import {Link} from 'react-router-dom'
-const LoginView = () => {
-  return (
+import { connect } from "react-redux";
+import LoginImage from "../../assets/login_image.jpeg";
+import { Link } from "react-router-dom";
+import { LoginAction } from "../../redux/action/actionLogin";
+
+const LoginView = (props) => {
+  
+  const [condition, setCondition] = useState({
+    message: "",
+  });
+  
+  // menampung nilai yang dikirim dari form Ex: username,password
+  const [FormLoginState, SetFormLoginState] = useState({
+    username: "",
+    password: "",
+  });
+
+  // handle submit
+  const handleSubmit = (e) => {
+    // menahan halaman tidak refresh
+    e.preventDefault();
+    
+    // validasi form
+    if (FormLoginState.username == "" && FormLoginState.password) {
+      setCondition({message:"Tolong lengkapi form username dan password"})
+    }
+    // kirim data ke server
+    props.ActionLogin(FormLoginState.username, FormLoginState.password);
+    console.log(FormLoginState);
+  };
+
+  return ( 
     <div>
       <Container fluid>
         <div className="d-flex bd-highlight example-parent">
@@ -16,14 +45,34 @@ const LoginView = () => {
               }}
             >
               <h1>Login</h1>
-              <Form>
+              <Form onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Label>Username</Form.Label>
+                  <Form.Control
+                    type="input"
+                    placeholder="Username"
+                    value={FormLoginState.username}
+                    onChange={(val) => {
+                      SetFormLoginState({
+                        ...FormLoginState,
+                        username: val.target.value,
+                      });
+                    }}
+                  />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password" />
+                  <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    value={FormLoginState.password}
+                    onChange={(val) => {
+                      SetFormLoginState({
+                        ...FormLoginState,
+                        password: val.target.value,
+                      });
+                    }}
+                  />
                 </Form.Group>
 
                 <Button
@@ -31,26 +80,29 @@ const LoginView = () => {
                   type="submit"
                   className="align-self-center"
                   style={{
-                    marginTop:"10px",
-                    marginBottom:"5px",
+                    marginTop: "10px",
+                    marginBottom: "5px",
                     width: "60%",
                     marginLeft: "20%",
                   }}
                 >
-                  Submit
+                  Login
                 </Button>
                 <Button
                   variant="primary"
                   type="submit"
                   className="align-self-center"
                   style={{
-                    marginTop:"10px",
-                    marginBottom:"5px",
+                    marginTop: "10px",
+                    marginBottom: "5px",
                     width: "60%",
                     height: "40px",
                     marginLeft: "20%",
                   }}
-                ><Link to="/"><p style={{color:"#ffffff"}}>Kembali</p></Link>
+                >
+                  <Link to="/">
+                    <p style={{ color: "#ffffff" }}>Kembali</p>
+                  </Link>
                 </Button>
               </Form>
             </Col>
@@ -61,4 +113,19 @@ const LoginView = () => {
   );
 };
 
-export default LoginView;
+// Menyambungkan view atau halaman ke redux
+const mapStateProps = (state) => {
+  return {
+    // menampung state yang dikirim oleh redux
+    LoginState: state.LoginReducer,
+  };
+};
+const mapDispatachToProps = (dispatch) => {
+  return {
+    // Function atau fungsi untuk hit atau get data ke server
+    ActionLogin: (username, password) =>
+      dispatch(LoginAction(username, password)),
+  };
+};
+
+export default connect(mapStateProps, mapDispatachToProps)(LoginView);

@@ -76,8 +76,15 @@ const FormDataUser = () => {
           {/* <Form.Group className="mb-3" id="formGridCheckbox">
             <Form.Check type="checkbox" label="Check me out" />
           </Form.Group> */}
-
-          <Button variant="primary" type="submit">
+          <Button href={"/dashboarduser"} size="lg">
+            Kembali
+          </Button>
+          <Button
+            style={{ marginLeft: "10px" }}
+            variant="success"
+            type="submit"
+            size="lg"
+          >
             Submit
           </Button>
         </Form>

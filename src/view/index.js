@@ -4,5 +4,6 @@ import Register from './register'
 import ViewDashboard from './Dashboard'
 import ViewDashboardUser from './dashboard.User'
 import FormDataUser from './form.Data.User'
+import TambahGedung from './form.Data.Gedung'
 
-export {Login,HomeView,ViewDashboard,Register,ViewDashboardUser,FormDataUser}
+export {Login,HomeView,ViewDashboard,Register,ViewDashboardUser,FormDataUser,TambahGedung}

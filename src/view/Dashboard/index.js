@@ -20,6 +20,7 @@ import {
 import "react-pro-sidebar/dist/css/styles.css";
 import { Bar } from "react-chartjs-2";
 import { DumyData } from "./dumy.datas.js";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const ViewDashboard = () => {
   return (
     <>
@@ -46,7 +47,7 @@ const ViewDashboard = () => {
               >
                 <Menu iconShape="circle">
                   <SubMenu title="Menejemen Gedung">
-                    <MenuItem>Tambah Gedung</MenuItem>
+                    <MenuItem>Tambah Gedung<Link to="./tambahgedung"/></MenuItem>
                     <MenuItem>Edit Gedung</MenuItem>
                   </SubMenu>
                   <SubMenu title="Transaksi">

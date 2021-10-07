@@ -11,7 +11,7 @@ import store from '../redux/store'
 
 import { HomeView, Login, Register, FormDataUser } from "../view";
 import ViewDashboard from "../view/Dashboard";
-import { ViewDashboardUser } from "../view";
+import { ViewDashboardUser, TambahGedung } from "../view";
 const Routes = () => {
   return (
     // Mendaftarkan router ke redux
@@ -34,6 +34,9 @@ const Routes = () => {
       </Route>
       <Route path="/formdatauser">
         <FormDataUser></FormDataUser>
+      </Route>
+      <Route path="/tambahgedung">
+        <TambahGedung></TambahGedung>
       </Route>
     </Switch>
     </Provider>

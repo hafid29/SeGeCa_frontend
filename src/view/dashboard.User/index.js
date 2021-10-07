@@ -11,7 +11,6 @@ import {
   NavBrand,
   NavMenu,
 } from "react-bootstrap";
-import LoginImage from "../../assets/login_image.jpeg";
 import HomeUser from "../../assets/image_home_user.jpeg";
 import Catering from "../../assets/catering.jpeg";
 import { HeaderUser } from "../../component";
@@ -22,20 +21,6 @@ const ViewDashboardUser = () => {
       <br />
       <Row>
         <Col md={6}>
-          {/* <Col md={6}>
-          <Row>
-            <Col>
-              <img src={LoginImage} />
-            </Col>
-            <Col>
-              <img src={LoginImage} />
-            </Col>
-          </Row>
-        </Col>
-        <Col md={6}>
-          Event info
-          <img src={LoginImage} />
-        </Col> */}
           <Card>
             <Card.Img
               variant="top"

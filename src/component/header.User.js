@@ -25,10 +25,16 @@ const HeaderUser = (props) => {
           </Col>
           <Col>
             <Nav className="justify-content-center">
-              <Nav.Link href="#deets" style={{ marginRight: "30px" }}>
+              <Nav.Link
+                href={'./dashboarduser'}
+                style={{ marginRight: "30px" }}
+              >
                 Home
               </Nav.Link>
-              <Nav.Link href="#deets" style={{ marginRight: "30px" }}>
+              <Nav.Link
+                href={'./formdatauser'}
+                style={{ marginRight: "30px" }}
+              >
                 Pemesanan
               </Nav.Link>
               <Nav.Link href="#deets" style={{ marginRight: "30px" }}>

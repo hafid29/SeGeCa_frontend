@@ -61,7 +61,7 @@ const TambahGedung = () => {
           {/* Row Jumlah transaksi */}
           <Row style={{ marginTop: "40px" }}>
             <Col style={{ marginLeft: "4px" }}>
-              <h2>FORM DATA USER</h2>
+              <h2>FORM DATA GEDUNG</h2>
               <br />
               <Form>
                 <Row className="mb-3">
@@ -70,7 +70,7 @@ const TambahGedung = () => {
                     <Form.Control type="text" placeholder="Nama Gedung" />
                   </Form.Group>
                 </Row>
-
+{/*  */}
                 <Button href={"/dashboard"} size="lg">
                   Kembali
                 </Button>

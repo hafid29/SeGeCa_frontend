@@ -17,7 +17,7 @@ const HeaderUser = (props) => {
       <Row>
         <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
           <Col>
-            <Container>
+            <Container fluid>
               <Navbar.Brand href="#home">SEGECA</Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav"></Navbar.Collapse>
@@ -37,10 +37,10 @@ const HeaderUser = (props) => {
               >
                 Pemesanan
               </Nav.Link>
-              <Nav.Link href="#deets" style={{ marginRight: "30px" }}>
+              <Nav.Link href={'./userabout'} style={{ marginRight: "30px" }}>
                 About Us
               </Nav.Link>
-              <Nav.Link href="#deets">Contact</Nav.Link>
+              <Nav.Link href={'./usercontact'}>Contact</Nav.Link>
             </Nav>
           </Col>
         </Navbar>

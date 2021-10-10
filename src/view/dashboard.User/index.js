@@ -13,7 +13,7 @@ import {
 } from "react-bootstrap";
 import HomeUser from "../../assets/image_home_user.jpeg";
 import Catering from "../../assets/catering.jpeg";
-import { HeaderUser } from "../../component";
+import { HeaderUser, FooterUser } from "../../component";
 const ViewDashboardUser = () => {
   return (
     <>
@@ -81,6 +81,7 @@ const ViewDashboardUser = () => {
           </Card>
         </Row>
       </Row>
+      <FooterUser></FooterUser>
     </>
   );
 };

@@ -9,7 +9,7 @@ import {
   Card,
   Nav,
 } from "react-bootstrap";
-import { HeaderUser } from "../../component";
+import { HeaderUser, FooterUser } from "../../component";
 const FormDataUser = () => {
   return (
     <>
@@ -67,6 +67,7 @@ const FormDataUser = () => {
           </Button>
         </Form>
       </Container>
+      <FooterUser></FooterUser>
     </>
   );
 };

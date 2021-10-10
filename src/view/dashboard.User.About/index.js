@@ -9,7 +9,7 @@ import {
   Card,
   Nav,
 } from "react-bootstrap";
-import { HeaderUser } from "../../component";
+import { HeaderUser, FooterUser } from "../../component";
 const UserAbout = () => {
   return (
     <>
@@ -82,6 +82,7 @@ const UserAbout = () => {
           </Card.Body>
         </Card>
       </Container>
+      <FooterUser></FooterUser>
     </>
   );
 };

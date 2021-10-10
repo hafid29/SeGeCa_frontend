@@ -20,7 +20,7 @@ import {
 import { FaFacebook, FaTwitter, FaGoogle, FaWhatsapp } from "react-icons/fa";
 import { ImageContact } from "../../assets/image_home_user.jpeg";
 import { Link } from "react-router-dom";
-import { HeaderUser } from "../../component";
+import { HeaderUser, FooterUser } from "../../component";
 const UserContact = () => {
   return (
     <>
@@ -111,6 +111,7 @@ const UserContact = () => {
           </Col>
         </Row>
       </Container>
+      <FooterUser></FooterUser>
     </>
   );
 };

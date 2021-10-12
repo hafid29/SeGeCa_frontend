@@ -33,36 +33,22 @@ const FooterUser = () => {
               </Row>
               <Row>
                 <Col>
-                  <Link to="./formdatauser" >
-                    Pemesanan
+                  <Link to="./dashboarduser" >
+                    Gedung
                   </Link>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <Link to="./formdatauser" >
-                    Daftar Gedung
+                  <Link to="./dashboarduser" >
+                    Catering
                   </Link>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <Link to="./formdatauser" >
-                    Daftar Catering
-                  </Link>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <Link to="./formdatauser" >
-                    About Us
-                  </Link>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <Link to="./formdatauser" >
-                    Contact
+                  <Link to="./dashboarduser" >
+                    Info
                   </Link>
                 </Col>
               </Row>
@@ -76,35 +62,21 @@ const FooterUser = () => {
               <Row>
                 <Col>
                   <Link to="./formdatauser" >
-                    Pemesanan
+                    Isi Data User
                   </Link>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <Link to="./formdatauser" >
+                  <Link to="./daftargedung" >
                     Daftar Gedung
                   </Link>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <Link to="./formdatauser" >
+                  <Link to="./daftarcatering" >
                     Daftar Catering
-                  </Link>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <Link to="./formdatauser" >
-                    About Us
-                  </Link>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <Link to="./formdatauser" >
-                    Contact
                   </Link>
                 </Col>
               </Row>
@@ -117,36 +89,22 @@ const FooterUser = () => {
               </Row>
               <Row>
                 <Col>
-                  <Link to="./formdatauser" >
-                    Pemesanan
+                  <Link to="./userabout" >
+                    Info
                   </Link>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <Link to="./formdatauser" >
-                    Daftar Gedung
+                  <Link to="./userabout" >
+                    Visi
                   </Link>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <Link to="./formdatauser" >
-                    Daftar Catering
-                  </Link>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <Link to="./formdatauser" >
-                    About Us
-                  </Link>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <Link to="./formdatauser" >
-                    Contact
+                  <Link to="./userabout" >
+                    History
                   </Link>
                 </Col>
               </Row>
@@ -159,36 +117,22 @@ const FooterUser = () => {
               </Row>
               <Row>
                 <Col>
-                  <Link to="./formdatauser" >
-                    Pemesanan
+                  <Link to="./contactuser" >
+                    Komentar
                   </Link>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <Link to="./formdatauser" >
-                    Daftar Gedung
+                  <Link to="./contactuser" >
+                    Info Media Social
                   </Link>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <Link to="./formdatauser" >
-                    Daftar Catering
-                  </Link>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <Link to="./formdatauser" >
-                    About Us
-                  </Link>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <Link to="./formdatauser" >
-                    Contact
+                  <Link to="./contactuser" >
+                    Logout
                   </Link>
                 </Col>
               </Row>

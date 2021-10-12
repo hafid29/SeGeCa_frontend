@@ -14,7 +14,9 @@ import {
   ViewDashboardUser,
   TambahGedung,
   UserAbout,
-  UserContact
+  UserContact,
+  UserGedung,
+  UserCatering
 } from "../view";
 const Routes = () => {
   return (
@@ -47,6 +49,12 @@ const Routes = () => {
         </Route>
         <Route path="/usercontact">
           <UserContact></UserContact>
+        </Route>
+        <Route path="/usergedung">
+          <UserGedung></UserGedung>
+        </Route>
+        <Route path="/usercatering">
+          <UserCatering></UserCatering>
         </Route>
       </Switch>
     </Provider>

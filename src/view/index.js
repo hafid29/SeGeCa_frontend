@@ -7,6 +7,8 @@ import FormDataUser from "./form.Data.User";
 import TambahGedung from "./form.Data.Gedung";
 import UserAbout from "./dashboard.User.About";
 import UserContact from "./dashboard.User.Contact";
+import UserGedung from "./dashboard.User.Gedung";
+import UserCatering from "./dashboard.User.Catering";
 
 export {
   Login,
@@ -18,4 +20,6 @@ export {
   TambahGedung,
   UserAbout,
   UserContact,
+  UserGedung,
+  UserCatering,
 };

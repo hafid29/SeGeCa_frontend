@@ -37,6 +37,18 @@ const HeaderUser = (props) => {
               >
                 Pemesanan
               </Nav.Link>
+              <Nav.Link
+                href={'./usergedung'}
+                style={{ marginRight: "30px" }}
+              >
+                Gedung
+              </Nav.Link>
+              <Nav.Link
+                href={'./usercatering'}
+                style={{ marginRight: "30px" }}
+              >
+                Catering
+              </Nav.Link>
               <Nav.Link href={'./userabout'} style={{ marginRight: "30px" }}>
                 About Us
               </Nav.Link>

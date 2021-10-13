@@ -1,13 +1,15 @@
 // import action type
-import { PROCESS_LOGIN,LOGIN_FAILED, LOGIN_SUCCESS} from "../action/action";
+import { PROCESS_LOGIN, LOGIN_FAILED, LOGIN_SUCCESS } from "../action/action";
 
 // state awal
 const initState = {
   message: "",
   isLoading: false,
+  isAlert: false,
   isSuccess: false,
   datas: {
     userId: 0,
+    username:""
   },
 };
 
@@ -17,12 +19,20 @@ export default (state = initState, action) => {
     case PROCESS_LOGIN:
       return {
         ...state,
-        message: "",
         isLoading: true,
+        isAlert: false,
         isSuccess: false,
+      };
+    case LOGIN_SUCCESS:
+      return {
+        message: action.payload.message,
+        isLoading: false,
+        isAlert: false,
+        isSuccess: true,
         datas: {
           ...state.datas,
-          userId: 0,
+          userId: action.payload.userId,
+          username: action.payload.username
         },
       };
     case LOGIN_FAILED:
@@ -30,22 +40,9 @@ export default (state = initState, action) => {
         ...state,
         message: action.payload.message,
         isLoading: false,
+        isAlert: true,
         isSuccess: false,
-        datas: {
-          ...state.datas,
-          userId: 0,
-        },
-      };
-    case LOGIN_SUCCESS:
-      return {
-        ...state,
-        message: action.payload.message,
-        isLoading: false,
-        isSuccess: true,
-        datas: {
-          ...state.datas,
-          userId: action.payload.userId,
-        },
+        datas: {},
       };
     default:
       return state;

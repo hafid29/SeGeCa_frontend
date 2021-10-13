@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { Form, Button, Container, Row, Col,Alert} from "react-bootstrap";
 import { connect } from "react-redux";
 import LoginImage from "../../assets/login_image.jpeg";
-import { Link } from "react-router-dom";
+import { Link,Redirect } from "react-router-dom";
 import { LoginAction } from "../../redux/action/actionLogin";
 
 const LoginView = (props) => {
@@ -10,6 +10,7 @@ const LoginView = (props) => {
   const [condition, setCondition] = useState({
     message: "",
   });
+  
   
   // menampung nilai yang dikirim dari form Ex: username,password
   const [FormLoginState, SetFormLoginState] = useState({
@@ -44,6 +45,13 @@ const LoginView = (props) => {
                 alignSelf: "center",
               }}
             >
+              {/* logika menampilkan pesan Gagal*/}
+              {
+                console.log(props.LoginState)
+              }
+              {
+                props.LoginState.isAlert == false ?  "":<Alert>{props.LoginState.message}</Alert>
+              }
               <h1>Login</h1>
               <Form onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -109,6 +117,11 @@ const LoginView = (props) => {
           </Row>
         </div>
       </Container>
+      {/* Arahkan ke halaman dashboar jika login berhasil */}
+      {
+        props.LoginState.isSuccess == false ?  "":<Redirect to="/dashboard" />
+
+      }
     </div>
   );
 };

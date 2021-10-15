@@ -18,14 +18,13 @@ import {
   SubMenu,
 } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
-import { Bar } from "react-chartjs-2";
-import { DumyData } from "./dumy.datas.js";
+import { Link } from 'react-router-dom'
 const ViewDashboard = () => {
   return (
     <>
       <Row>
         <Navbar bg="primary">
-          <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
+          <Navbar.Brand href="./dashboard">Navbar with text</Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
@@ -46,8 +45,12 @@ const ViewDashboard = () => {
               >
                 <Menu iconShape="circle">
                   <SubMenu title="Menejemen Gedung">
-                    <MenuItem>Tambah Gedung</MenuItem>
-                    <MenuItem>Edit Gedung</MenuItem>
+                    <MenuItem>Tambah Gedung<Link to="./tambahgedung" /></MenuItem>
+                    <MenuItem>Daftar Gedung<Link to="./admingedung" /></MenuItem>
+                  </SubMenu>
+                  <SubMenu title="Menejemen Catering">
+                    <MenuItem>Tambah Catering<Link to="./tambahcatering"/></MenuItem>
+                    <MenuItem>Daftar Catering<Link to="./admincatering"/></MenuItem>
                   </SubMenu>
                   <SubMenu title="Transaksi">
                     <MenuItem>History Transaksi</MenuItem>

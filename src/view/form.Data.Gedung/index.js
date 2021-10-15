@@ -18,12 +18,13 @@ import {
   SubMenu,
 } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
+import { Link } from 'react-router-dom'
 const TambahGedung = () => {
   return (
     <>
       <Row>
         <Navbar bg="primary">
-          <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
+          <Navbar.Brand href="./dashboard">Navbar with text</Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
@@ -44,8 +45,12 @@ const TambahGedung = () => {
               >
                 <Menu iconShape="circle">
                   <SubMenu title="Menejemen Gedung">
-                    <MenuItem>Tambah Gedung</MenuItem>
-                    <MenuItem>Edit Gedung</MenuItem>
+                    <MenuItem>Tambah Gedung<Link to="./tambahgedung" /></MenuItem>
+                    <MenuItem>Daftar Gedung<Link to="./admingedung" /></MenuItem>
+                  </SubMenu>
+                  <SubMenu title="Menejemen Catering">
+                    <MenuItem>Tambah Catering<Link to="./tambahcatering"/></MenuItem>
+                    <MenuItem>Daftar Catering<Link to="./admincatering"/></MenuItem>
                   </SubMenu>
                   <SubMenu title="Transaksi">
                     <MenuItem>History Transaksi</MenuItem>
@@ -57,12 +62,17 @@ const TambahGedung = () => {
             </div>
           </Row>
         </Col>
+
         <Col style={{ marginLeft: "50px", marginTop: "4px" }}>
           {/* Row Jumlah transaksi */}
+          <Row>
+            <Card.Header as="h2" className="p-3 mb-2 bg-info text-Dark text-center">
+              Form Tambah Gedung
+            </Card.Header>
+          </Row>
           <Row style={{ marginTop: "40px" }}>
             <Col style={{ marginLeft: "4px" }}>
-              <h2>FORM DATA GEDUNG</h2>
-              <br />
+
               <Form>
                 <Row className="mb-3">
                   <Form.Group as={Col}>
@@ -70,7 +80,7 @@ const TambahGedung = () => {
                     <Form.Control type="text" placeholder="Nama Gedung" />
                   </Form.Group>
                 </Row>
-{/*  */}
+                {/*  */}
                 <Button href={"/dashboard"} size="lg">
                   Kembali
                 </Button>

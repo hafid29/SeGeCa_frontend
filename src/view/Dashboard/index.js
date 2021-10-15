@@ -26,7 +26,7 @@ const ViewDashboard = () => {
     <>
       <Row>
         <Navbar bg="primary">
-          <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
+          <Navbar.Brand href="./dashboard">Navbar with text</Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
@@ -48,7 +48,11 @@ const ViewDashboard = () => {
                 <Menu iconShape="circle">
                   <SubMenu title="Menejemen Gedung">
                     <MenuItem>Tambah Gedung<Link to="./tambahgedung"/></MenuItem>
-                    <MenuItem>Edit Gedung</MenuItem>
+                    <MenuItem>Daftar Gedung<Link to="./admingedung"/></MenuItem>
+                  </SubMenu>
+                  <SubMenu title="Menejemen Catering">
+                    <MenuItem>Tambah Catering<Link to="./tambahcatering"/></MenuItem>
+                    <MenuItem>Daftar Catering<Link to="./admincatering"/></MenuItem>
                   </SubMenu>
                   <SubMenu title="Transaksi">
                     <MenuItem>History Transaksi</MenuItem>

@@ -9,7 +9,8 @@ const initState = {
   isSuccess: false,
   datas: {
     userId: 0,
-    username:""
+    username: "",
+    role_name: "",
   },
 };
 
@@ -32,7 +33,8 @@ export default (state = initState, action) => {
         datas: {
           ...state.datas,
           userId: action.payload.userId,
-          username: action.payload.username
+          username: action.payload.username,
+          role_name: action.payload.roleName,
         },
       };
     case LOGIN_FAILED:

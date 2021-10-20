@@ -1,5 +1,9 @@
 // import action type
-import { PROCESS_REGISTER, REGISTER_FAILED, REGISTER_SUCCESS } from "../action/action";
+import {
+  PROCESS_REGISTER,
+  REGISTER_FAILED,
+  REGISTER_SUCCESS,
+} from "../action/action";
 
 // state awal
 const initState = {
@@ -7,10 +11,6 @@ const initState = {
   isLoading: false,
   isAlert: false,
   isSuccess: false,
-  datas: {
-    userId: 0,
-    username:""
-  },
 };
 
 // mengolah data yang dikirim dari server dan di olah oleh reducer
@@ -29,11 +29,6 @@ export default (state = initState, action) => {
         isLoading: false,
         isAlert: false,
         isSuccess: true,
-        datas: {
-          ...state.datas,
-          userId: action.payload.userId,
-          username: action.payload.username
-        },
       };
     case REGISTER_FAILED:
       return {
@@ -42,7 +37,6 @@ export default (state = initState, action) => {
         isLoading: false,
         isAlert: true,
         isSuccess: false,
-        datas: {},
       };
     default:
       return state;

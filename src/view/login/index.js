@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, Container, Row, Col,Alert} from "react-bootstrap";
+import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
 import { connect } from "react-redux";
 import LoginImage from "../../assets/login_image.jpeg";
-import { Link,Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { LoginAction } from "../../redux/action/actionLogin";
 
 const LoginView = (props) => {
-  
   const [condition, setCondition] = useState({
     message: "",
   });
-  
-  
+
   // menampung nilai yang dikirim dari form Ex: username,password
   const [FormLoginState, SetFormLoginState] = useState({
     username: "",
@@ -22,17 +20,17 @@ const LoginView = (props) => {
   const handleSubmit = (e) => {
     // menahan halaman tidak refresh
     e.preventDefault();
-    
+
     // validasi form
     if (FormLoginState.username == "" && FormLoginState.password) {
-      setCondition({message:"Tolong lengkapi form username dan password"})
+      setCondition({ message: "Tolong lengkapi form username dan password" });
     }
     // kirim data ke server
     props.ActionLogin(FormLoginState.username, FormLoginState.password);
     console.log(FormLoginState);
   };
 
-  return ( 
+  return (
     <div>
       <Container fluid>
         <div className="d-flex bd-highlight example-parent">
@@ -46,12 +44,12 @@ const LoginView = (props) => {
               }}
             >
               {/* logika menampilkan pesan Gagal*/}
-              {
-                console.log(props.LoginState)
-              }
-              {
-                props.LoginState.isAlert == false ?  "":<Alert>{props.LoginState.message}</Alert>
-              }
+              {console.log(props.LoginState)}
+              {props.LoginState.isAlert == false ? (
+                ""
+              ) : (
+                <Alert>{props.LoginState.message}</Alert>
+              )}
               <h1>Login</h1>
               <Form onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -118,16 +116,22 @@ const LoginView = (props) => {
         </div>
       </Container>
       {/* Arahkan ke halaman dashboar jika login berhasil */}
-      {
-        props.LoginState.isSuccess == false ?  "":<Redirect to="/dashboard" />
-
-      }
+      {props.LoginState.isSuccess == false ||
+      props.LoginState.datas.role_name == "" ? (
+        ""
+      ) : props.LoginState.isSuccess == true &&
+        props.LoginState.datas.role_name == "USER" ? (
+        <Redirect to="/dashboarduser" />
+      ) : (
+        <Redirect to="/dashboard" />
+      )}
     </div>
   );
 };
 
 // Menyambungkan view atau halaman ke redux
 const mapStateProps = (state) => {
+  console.log(state.LoginReducer);
   return {
     // menampung state yang dikirim oleh redux
     LoginState: state.LoginReducer,

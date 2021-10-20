@@ -1,7 +1,31 @@
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
+import { connect } from "react-redux";
 import LoginImage from "../../assets/login_image.jpeg";
-import {Link} from 'react-router-dom'
-const RegisterView = () => {
+import { RegisterAction } from "../../redux/action/actionRegister";
+import { Link } from "react-router-dom";
+const RegisterView = (props) => {
+  const [condition, setCondition] = useState({
+    message: "",
+  });
+
+  // dump state
+  const [register, setRegister] = useState({
+    username: "",
+    password: "",
+    userRole: 2,
+  });
+
+  // func for handle and prevent refresh page
+  const handleSubmit = (e) => {
+    // menahan halaman agar tidak refresh
+    e.preventDefault();
+    props.ActionRegiser(
+      register.username,
+      register.password,
+      register.userRole
+    );
+  };
   return (
     <div>
       <Container fluid>
@@ -15,21 +39,43 @@ const RegisterView = () => {
                 alignSelf: "center",
               }}
             >
+              {props.RegisterState.isAlert == false ? (
+                ""
+              ) : (
+                <Alert>{props.RegisterState.message}</Alert>
+              )}
               <h1>Register</h1>
-              <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
-                </Form.Group>
+              <Form onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Username</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
+                  <Form.Control
+                    type="input"
+                    placeholder="Enter Username"
+                    required
+                    onChange={(val) =>
+                      setRegister({
+                        // mengambil nilai sebelumnya
+                        ...register,
+                        username: val.target.value,
+                      })
+                    }
+                  />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password" />
+                  <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    required
+                    onChange={(val) =>
+                      setRegister({
+                        // mengambil nilai sebelumnya
+                        ...register,
+                        password: val.target.value,
+                      })
+                    }
+                  />
                 </Form.Group>
-
                 <Button
                   variant="primary"
                   type="submit"
@@ -48,13 +94,16 @@ const RegisterView = () => {
                   type="submit"
                   className="align-self-center"
                   style={{
-                    marginTop:"10px",
-                    marginBottom:"5px",
+                    marginTop: "10px",
+                    marginBottom: "5px",
                     width: "60%",
                     height: "40px",
                     marginLeft: "20%",
                   }}
-                ><Link to="/"><p style={{color:"#ffffff"}}>Kembali</p></Link>
+                >
+                  <Link to="/">
+                    <p style={{ color: "#ffffff" }}>Kembali</p>
+                  </Link>
                 </Button>
               </Form>
             </Col>
@@ -65,4 +114,19 @@ const RegisterView = () => {
   );
 };
 
-export default RegisterView;
+const mapStateToProps = (state) => {
+  console.log(state.RegisterReducer);
+  return {
+    RegisterState: state.RegisterReducer,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    ActionRegiser: (username, password, role) => {
+      dispatch(RegisterAction(username, password, role));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterView);

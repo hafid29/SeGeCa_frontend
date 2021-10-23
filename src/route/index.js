@@ -19,7 +19,9 @@ import {
   UserGedung,
   UserCatering,
   AdminGedung,
-  AdminCatering
+  AdminCatering,
+  HalamanOrderGedung1,
+  HalamanOrderCatering1
 } from "../view";
 const Routes = () => {
   return (
@@ -67,6 +69,12 @@ const Routes = () => {
         </Route>
         <Route path="/admincatering">
           <AdminCatering></AdminCatering>
+        </Route>
+        <Route path="/halamanordergedung1">
+          <HalamanOrderGedung1></HalamanOrderGedung1>
+        </Route>
+        <Route path="/halamanordercatering1">
+          <HalamanOrderCatering1></HalamanOrderCatering1>
         </Route>
       </Switch>
     </Provider>

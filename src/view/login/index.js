@@ -6,6 +6,26 @@ import { Link, Redirect } from "react-router-dom";
 import { LoginAction } from "../../redux/action/actionLogin";
 
 const LoginView = (props) => {
+  const [session, setSession] = useState({
+    isAvailable: false,
+    role_name: "",
+  });
+  React.useEffect(() => {
+    const obj = JSON.parse(localStorage.getItem("user_session"));
+    if (obj == null) {
+    } else if (obj.role_name == "USER") {
+      setSession({
+        isAvailable: true,
+        role_name: obj.role_name,
+      });
+    } else {
+      setSession({
+        isAvailable: true,
+        role_name: obj.role_name,
+      });
+    }
+  }, []);
+
   const [condition, setCondition] = useState({
     message: "",
   });
@@ -32,6 +52,14 @@ const LoginView = (props) => {
 
   return (
     <div>
+      {/* if session available */}
+      {session.isAvailable == false ? (
+        ""
+      ) : session.role_name == "USER" ? (
+        <Redirect to="/dashboarduser" />
+      ) : (
+        <Redirect to="/dashboard" />
+      )}
       <Container fluid>
         <div className="d-flex bd-highlight example-parent">
           <div className="p-2 w-80 bd-highlight col-example">

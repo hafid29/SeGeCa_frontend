@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import {
   Form,
   Button,
@@ -14,10 +15,18 @@ import {
 import HomeUser from "../../assets/image_home_user.jpeg";
 import Catering from "../../assets/catering.jpeg";
 import { HeaderUser, FooterUser } from "../../component";
+import {  useLocation } from "react-router-dom";
+
 const ViewDashboardUser = () => {
+  const [session, setSession] = useState({
+    isAvailable: false,
+    role_name: "",
+  });
+  const pathName = useLocation()
+
   return (
     <>
-      <HeaderUser></HeaderUser>
+      <HeaderUser pathName={pathName.pathname}></HeaderUser>
       <br />
       <Row>
         <Col md={6}>
@@ -59,7 +68,7 @@ const ViewDashboardUser = () => {
                 hubungannya dengan kebutuhan makanan).
               </Card.Text>
               <Button variant="primary" href={"/formdatauser"}>
-              Pesan Sekarang
+                Pesan Sekarang
               </Button>
             </Card.Body>
           </Card>

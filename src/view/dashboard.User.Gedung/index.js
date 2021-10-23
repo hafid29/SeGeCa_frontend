@@ -31,7 +31,7 @@ const UserGedung = () => {
                                         This is a longer card with supporting text below as a natural
                                         lead-in to additional content.This content is a little bit longer.
                                     </Card.Text>
-                                    <Button variant="warning">Detail / Pilih</Button>
+                                    <Button href={"/halamanordergedung1"} variant="warning">Detail / Pilih</Button>
                                 </Card.Body>
                             </Card>
                         </Col>

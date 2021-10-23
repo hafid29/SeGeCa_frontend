@@ -12,6 +12,8 @@ import UserGedung from "./dashboard.User.Gedung";
 import UserCatering from "./dashboard.User.Catering";
 import AdminGedung from "./dashboard.Admin.Daftar.Gedung";
 import AdminCatering from "./dashboard.Admin.Daftar.Catering";
+import HalamanOrderGedung1 from "./dashboard.User.Halaman.Pesan.Gedung.1";
+import HalamanOrderCatering1 from "./dashboard.User.Halaman.Pesan.Catering.1";
 
 export {
   Login,
@@ -28,4 +30,6 @@ export {
   UserCatering,
   AdminGedung,
   AdminCatering,
+  HalamanOrderGedung1,
+  HalamanOrderCatering1
 };

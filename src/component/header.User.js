@@ -24,35 +24,44 @@ const HeaderUser = (props) => {
             </Container>
           </Col>
           <Col>
-            <Nav className="justify-content-center">
+            <Nav className="justify-content-center text-white">
               <Nav.Link
+                className="text-white"
                 href={'./dashboarduser'}
                 style={{ marginRight: "30px" }}
               >
                 Home
               </Nav.Link>
               <Nav.Link
+                className="text-white"
                 href={'./formdatauser'}
                 style={{ marginRight: "30px" }}
               >
                 Pemesanan
               </Nav.Link>
               <Nav.Link
+                className="text-white"
                 href={'./usergedung'}
                 style={{ marginRight: "30px" }}
               >
                 Gedung
               </Nav.Link>
               <Nav.Link
+                className="text-white"
                 href={'./usercatering'}
                 style={{ marginRight: "30px" }}
               >
                 Catering
               </Nav.Link>
-              <Nav.Link href={'./userabout'} style={{ marginRight: "30px" }}>
+              <Nav.Link
+                className="text-white"
+                href={'./userabout'}
+                style={{ marginRight: "30px" }}>
                 About Us
               </Nav.Link>
-              <Nav.Link href={'./usercontact'}>Contact</Nav.Link>
+              <Nav.Link
+                className="text-white"
+                href={'./usercontact'}>Contact</Nav.Link>
             </Nav>
           </Col>
         </Navbar>

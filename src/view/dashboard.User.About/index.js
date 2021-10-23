@@ -10,10 +10,13 @@ import {
   Nav,
 } from "react-bootstrap";
 import { HeaderUser, FooterUser } from "../../component";
+import {  useLocation } from "react-router-dom";
+
 const UserAbout = () => {
+  const pathName = useLocation()
   return (
     <>
-      <HeaderUser></HeaderUser>
+      <HeaderUser pathName={pathName.pathname}></HeaderUser>
       <Container fluid>
         <Card className="text-center">
           <Card.Header as="h2" className="p-3 mb-2 bg-success text-white">

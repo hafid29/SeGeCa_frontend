@@ -25,6 +25,13 @@ export default (state = initState, action) => {
         isSuccess: false,
       };
     case LOGIN_SUCCESS:
+      const sessionData = JSON.stringify({
+        userId: action.payload.userId,
+        username: action.payload.username,
+        role_name: action.payload.roleName,
+      });
+      localStorage.setItem("user_session", sessionData);
+
       return {
         message: action.payload.message,
         isLoading: false,

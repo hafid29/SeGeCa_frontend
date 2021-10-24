@@ -14,18 +14,34 @@ import {
 } from "react-bootstrap";
 import HomeUser from "../../assets/image_home_user.jpeg";
 import Catering from "../../assets/catering.jpeg";
-import { HeaderUser, FooterUser } from "../../component";
-import {  useLocation } from "react-router-dom";
+import { HeaderUser, FooterUser,Modal } from "../../component";
+import { useLocation } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 const ViewDashboardUser = () => {
   const [session, setSession] = useState({
     isAvailable: false,
     role_name: "",
   });
-  const pathName = useLocation()
+  React.useEffect(() => {
+    const obj = localStorage.getItem("user_session");
+    console.log(obj)
+    if (obj == null) {
+      setSession({
+        isAvailable: false,
+      });
+    }else{
+      setSession({
+        isAvailable: true,
+      });
+    }
+  }, []);
+ 
+  const pathName = useLocation();
 
   return (
     <>
+      {session.isAvailable == true ? "": <Modal title="Anda Belum login" message="Lakukan Login terlebih dahulu"></Modal> }
       <HeaderUser pathName={pathName.pathname}></HeaderUser>
       <br />
       <Row>

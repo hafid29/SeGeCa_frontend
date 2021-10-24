@@ -1,3 +1,4 @@
+import {useLocation} from 'react-router-dom'
 import {
   Form,
   Button,
@@ -18,13 +19,12 @@ import {
   SubMenu,
 } from "react-pro-sidebar";
 import { FaFacebook, FaTwitter, FaGoogle, FaWhatsapp } from "react-icons/fa";
-import { ImageContact } from "../../assets/image_home_user.jpeg";
-import { Link } from "react-router-dom";
 import { HeaderUser, FooterUser } from "../../component";
 const UserContact = () => {
+  const pathName = useLocation()
   return (
     <>
-      <HeaderUser></HeaderUser>
+      <HeaderUser pathName={pathName.pathname}></HeaderUser>
       <Container fluid>
         <Card className="text-center">
           <Card.Header as="h2" className="p-3 mb-2 bg-success text-white">

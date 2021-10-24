@@ -67,7 +67,7 @@ const ViewDashboardUser = () => {
                 acara (pesta, pribadi, institut pemerintahan dan yang ada
                 hubungannya dengan kebutuhan makanan).
               </Card.Text>
-              <Button variant="primary" href={"/formdatauser"}>
+              <Button variant="warning" href={"/formdatauser"}>
                 Pesan Sekarang
               </Button>
             </Card.Body>
@@ -83,7 +83,7 @@ const ViewDashboardUser = () => {
                 catering sampai 3 kali banyaknya, selengkapnya klik tombol di
                 bawah
               </Card.Text>
-              <Button variant="primary" href={"/formdatauser"}>
+              <Button className="text-white" variant="info" href={"/formdatauser"}>
                 More Info
               </Button>
             </Card.Body>

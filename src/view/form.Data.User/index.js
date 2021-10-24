@@ -10,10 +10,13 @@ import {
   Nav,
 } from "react-bootstrap";
 import { HeaderUser, FooterUser } from "../../component";
+import { useLocation } from "react-router-dom";
 const FormDataUser = () => {
+
+  const pathName = useLocation()
   return (
     <>
-      <HeaderUser></HeaderUser>
+      <HeaderUser pathName={pathName.pathname}></HeaderUser>
       <br />
       <br />
       <Container>
@@ -53,7 +56,7 @@ const FormDataUser = () => {
               <Form.Control type="text" placeholder="Nama Terakhir" />
             </Form.Group>
           </Row>
-          
+
           <Button href={"/dashboarduser"} size="lg">
             Kembali
           </Button>

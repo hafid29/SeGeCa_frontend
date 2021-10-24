@@ -1,11 +1,13 @@
+import { useLocation } from 'react-router-dom'
 import { Card, Row, Col, Button, Container, Form } from 'react-bootstrap'
 import { HeaderUser, FooterUser } from '../../component'
 import Image from '../../assets/image_catering.jpeg'
 import { FaSearch } from 'react-icons/fa'
 const UserCatering = () => {
+    const pathName = useLocation()
     return (
         <>
-            <HeaderUser></HeaderUser>
+            <HeaderUser pathName={pathName.pathname}></HeaderUser>
             <Container fluid>
                 <Row>
                     <Card.Header as="h2" className="p-3 mb-2 bg-warning text-Dark text-center">

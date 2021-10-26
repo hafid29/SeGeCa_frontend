@@ -41,7 +41,7 @@ const ViewDashboardUser = () => {
 
   return (
     <>
-      {session.isAvailable == true ? "": <Modal title="Anda Belum login" message="Lakukan Login terlebih dahulu"></Modal> }
+      {session.isAvailable == true ? "": <Modal title="Anda Belum login" message="Lakukan Login terlebih dahulu" isShow="true"></Modal> }
       <HeaderUser pathName={pathName.pathname}></HeaderUser>
       <br />
       <Row>

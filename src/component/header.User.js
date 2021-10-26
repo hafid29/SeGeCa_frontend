@@ -1,21 +1,22 @@
+import React, { useState, useEffect } from "react";
 import {
-  Form,
-  Button,
   Navbar,
   Container,
-  Row,
-  Col,
-  NavDropdown,
-  Card,
   Nav,
-  NavBrand,
-  NavMenu,
 } from "react-bootstrap";
 import { FaHome, FaClipboard, FaBuilding, FaUtensils, FaQuestionCircle, FaFax, FaRegBuilding, FaSignOutAlt } from 'react-icons/fa'
+import Modals from './modal'
+
 const HeaderUser = (props) => {
+  const [modal, hideModal] = useState({
+    isShow: false,
+  })
   let path = props.pathName;
   return (
     <>
+      {
+        modal.isShow == false ? "": <Modals title="Log out" message="Apakah Anda yakin ?" isShow={modal.isShow}/>
+      }
       <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
         <Container fluid>
           <Navbar.Brand className="text-center"><FaRegBuilding style={{ marginRight: "10px" }} />SEGECA</Navbar.Brand>
@@ -119,9 +120,11 @@ const HeaderUser = (props) => {
               </Nav.Link>)
             }
             <Nav.Link
-              href={"./"}
+              onClick ={(v) => hideModal({
+                isShow: true
+              })}
               style={{ marginRight: "30px" }}>
-              <FaSignOutAlt style={{ marginRight: "5px" }} />
+              <FaSignOutAlt style={{ marginRight: "5px" }}/>
               Logout
             </Nav.Link>
           </Nav>

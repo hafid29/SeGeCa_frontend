@@ -26,7 +26,7 @@ export const RegisterAction = (user, password, role) => (dispatch) => {
     data: json,
   })
     .then((res) => {
-      console.log(res.data);
+      console.log(res.data.message);
       // untuk menampung data dari response
       dispatch({
         type: REGISTER_SUCCESS,

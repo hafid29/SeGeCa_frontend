@@ -5,10 +5,6 @@ import LoginImage from "../../assets/login_image.jpeg";
 import { RegisterAction } from "../../redux/action/actionRegister";
 import { Link } from "react-router-dom";
 const RegisterView = (props) => {
-  const [condition, setCondition] = useState({
-    message: "",
-  });
-
   // dump state
   const [register, setRegister] = useState({
     username: "",
@@ -44,6 +40,13 @@ const RegisterView = (props) => {
               ) : (
                 <Alert>{props.RegisterState.message}</Alert>
               )}
+              {
+                props.RegisterState.isTrue == false ? (
+                  ""
+                ) : (
+                  <Alert>{props.RegisterState.message}</Alert>
+                )
+              }
               <h1>Register</h1>
               <Form onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -115,7 +118,7 @@ const RegisterView = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.RegisterReducer);
+  console.log(state.RegisterReducer)
   return {
     RegisterState: state.RegisterReducer,
   };

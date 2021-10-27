@@ -29,15 +29,16 @@ export const LoginAction = (user, password) => (dispatch) => {
           userId: res.data.datas[0].id,
           username: res.data.datas[0].username,
           roleName: res.data.datas[0].role_name,
+          first_name: res.data.datas[0].first_name,
         },
       });
     })
     .catch((err) => {
-      console.log(err.response.data);
+      console.log(err)
       dispatch({
         type: LOGIN_FAILED,
         payload: {
-          message: err.response.data.message,
+          message: "gagal login",
         },
       });
     });

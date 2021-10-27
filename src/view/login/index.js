@@ -159,7 +159,7 @@ const LoginView = (props) => {
 
 // Menyambungkan view atau halaman ke redux
 const mapStateProps = (state) => {
-  console.log(state.LoginReducer);
+  console.log(state.LoginReducer.datas);
   return {
     // menampung state yang dikirim oleh redux
     LoginState: state.LoginReducer,

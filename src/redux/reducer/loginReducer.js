@@ -11,6 +11,7 @@ const initState = {
     userId: 0,
     username: "",
     role_name: "",
+    first_name:""
   },
 };
 
@@ -29,6 +30,7 @@ export default (state = initState, action) => {
         userId: action.payload.userId,
         username: action.payload.username,
         role_name: action.payload.roleName,
+        first_name: action.payload.first_name
       });
       localStorage.setItem("user_session", sessionData);
 
@@ -42,6 +44,7 @@ export default (state = initState, action) => {
           userId: action.payload.userId,
           username: action.payload.username,
           role_name: action.payload.roleName,
+          first_name: action.payload.first_name
         },
       };
     case LOGIN_FAILED:

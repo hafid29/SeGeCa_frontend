@@ -6,10 +6,12 @@ import { Link, Redirect } from "react-router-dom";
 import { LoginAction } from "../../redux/action/actionLogin";
 
 const LoginView = (props) => {
+  
   const [session, setSession] = useState({
     isAvailable: false,
     role_name: "",
   });
+
   React.useEffect(() => {
     const obj = JSON.parse(localStorage.getItem("user_session"));
     if (obj == null) {

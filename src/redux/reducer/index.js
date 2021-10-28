@@ -3,10 +3,12 @@ import {combineReducers} from 'redux';
 import addBuildingReducer from './addBuildingReducer.js';
 import loginReducer from './loginReducer.js';
 import registerReducer from './registerReducer.js';
+import addUserDataReducer from './addUserDataReducer.js';
 
 export default combineReducers({
     // Setiap ada reducer baru tambahkan disini
     AddBuildingReducer : addBuildingReducer,
     LoginReducer: loginReducer,
-    RegisterReducer: registerReducer
+    RegisterReducer: registerReducer,
+    AddUserDataReducer : addUserDataReducer,
 });

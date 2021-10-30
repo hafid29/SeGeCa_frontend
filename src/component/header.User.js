@@ -4,7 +4,7 @@ import {
   Container,
   Nav,
 } from "react-bootstrap";
-import { FaHome, FaClipboard, FaBuilding, FaUtensils, FaQuestionCircle, FaFax, FaRegBuilding, FaSignOutAlt } from 'react-icons/fa'
+import { FaHome, FaClipboard, FaBuilding, FaUtensils, FaQuestionCircle, FaFax, FaRegBuilding, FaSignOutAlt, FaUser, FaInfo } from 'react-icons/fa'
 import Modals from './modal'
 
 const HeaderUser = (props) => {
@@ -15,7 +15,7 @@ const HeaderUser = (props) => {
   return (
     <>
       {
-        modal.isShow == false ? "": <Modals title="Log out" message="Apakah Anda yakin ?" isShow={modal.isShow}/>
+        modal.isShow == false ? "" : <Modals title="Log out" message="Apakah Anda yakin ?" isShow={modal.isShow} />
       }
       <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
         <Container fluid>
@@ -40,10 +40,27 @@ const HeaderUser = (props) => {
                 Home
               </Nav.Link>
             )}
-            {path == "/formdatauser" ? (
+            {path == "/pemesananuser" ? (
               <Nav.Link
                 active
-                href={"./formdatauser"}
+                href={"./pemesananuser"}
+                style={{ marginRight: "30px" }}
+              >
+                <FaInfo style={{ marginRight: "5px" }} />
+                Info order
+              </Nav.Link>
+            ) : (
+              <Nav.Link
+                href={"./pemesananuser"}
+                style={{ marginRight: "30px" }}>
+                <FaInfo style={{ marginRight: "5px" }} />
+                Info order
+              </Nav.Link>
+            )}
+            {path == "/pemesananuser" ? (
+              <Nav.Link
+                active
+                href={"./pemesananuser"}
                 style={{ marginRight: "30px" }}
               >
                 <FaClipboard style={{ marginRight: "5px" }} />
@@ -51,7 +68,7 @@ const HeaderUser = (props) => {
               </Nav.Link>
             ) : (
               <Nav.Link
-                href={"./formdatauser"}
+                href={"./pemesananuser"}
                 style={{ marginRight: "30px" }}>
                 <FaClipboard style={{ marginRight: "5px" }} />
                 Pemesanan
@@ -120,13 +137,28 @@ const HeaderUser = (props) => {
               </Nav.Link>)
             }
             <Nav.Link
-              onClick ={(v) => hideModal({
+              onClick={(v) => hideModal({
                 isShow: true
               })}
               style={{ marginRight: "30px" }}>
-              <FaSignOutAlt style={{ marginRight: "5px" }}/>
+              <FaSignOutAlt style={{ marginRight: "5px" }} />
               Logout
             </Nav.Link>
+            {path == "/formdatauser" ? (
+              <Nav.Link
+                active
+                href={"./formdatauser"}
+                style={{ marginRight: "30px" }}
+              >
+                <FaUser style={{ marginRight: "5px" }} />
+              </Nav.Link>
+            ) : (
+              <Nav.Link
+                href={"./formdatauser"}
+                style={{ marginRight: "30px" }}>
+                <FaUser style={{ marginRight: "5px" }} />
+              </Nav.Link>
+            )}
           </Nav>
         </Container>
       </Navbar>

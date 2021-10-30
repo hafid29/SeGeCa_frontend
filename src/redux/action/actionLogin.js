@@ -20,7 +20,7 @@ export const LoginAction = (user, password) => (dispatch) => {
     data: json,
   })
     .then((res) => {
-      console.log(res.data);
+      console.log(res.data.datas);
       // untuk menampung data dari response
       dispatch({
         type: LOGIN_SUCCESS,
@@ -29,7 +29,7 @@ export const LoginAction = (user, password) => (dispatch) => {
           userId: res.data.datas[0].id,
           username: res.data.datas[0].username,
           roleName: res.data.datas[0].role_name,
-          first_name: res.data.datas[0].first_name,
+          first_name: res.data.datas[0].user_datas.first_name,
         },
       });
     })

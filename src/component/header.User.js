@@ -1,25 +1,60 @@
 import React, { useState, useEffect } from "react";
+import { Navbar, Container, Nav, Modal } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 import {
-  Navbar,
-  Container,
-  Nav,
-} from "react-bootstrap";
-import { FaHome, FaClipboard, FaBuilding, FaUtensils, FaQuestionCircle, FaFax, FaRegBuilding, FaSignOutAlt, FaUser, FaInfo } from 'react-icons/fa'
-import Modals from './modal'
+  FaHome,
+  FaClipboard,
+  FaBuilding,
+  FaUtensils,
+  FaQuestionCircle,
+  FaFax,
+  FaRegBuilding,
+  FaSignOutAlt,
+  FaUser,
+  FaInfo,
+} from "react-icons/fa";
+// import Modals from "./modal";
 
 const HeaderUser = (props) => {
   const [modal, hideModal] = useState({
     isShow: false,
-  })
+  });
+  const HandleHide = () => {
+    hideModal({
+      isShow: false,
+    });
+  };
   let path = props.pathName;
   return (
     <>
-      {
-        modal.isShow == false ? "" : <Modals title="Log out" message="Apakah Anda yakin ?" isShow={modal.isShow} />
-      }
+      {modal.isShow == false ? (
+        ""
+      ) : (
+        <Modal show={modal} onHide={HandleHide}>
+          <Modal.Header closeButton>
+            <Modal.Title>Anda yakin untuk logout ?</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Wes mbok pastik o?</Modal.Body>
+          <Modal.Footer>
+            <Link
+              to="/"
+              className="btn btn-primary"
+              onClick={() => {
+                localStorage.clear();
+              }}
+            >
+              Oke
+            </Link>
+          </Modal.Footer>
+        </Modal>
+      )}
       <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
         <Container fluid>
-          <Navbar.Brand className="text-center"><FaRegBuilding style={{ marginRight: "10px" }} />SEGECA</Navbar.Brand>
+          <Navbar.Brand className="text-center">
+            <FaRegBuilding style={{ marginRight: "10px" }} />
+            SEGECA
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav"></Navbar.Collapse>
           <Nav className="justify-content-end text-white">
@@ -28,7 +63,9 @@ const HeaderUser = (props) => {
                 active
                 href={"./dashboarduser"}
                 style={{ marginRight: "30px" }}
-              ><FaHome style={{ marginRight: "5px" }} />Home
+              >
+                <FaHome style={{ marginRight: "5px" }} />
+                Home
               </Nav.Link>
             ) : (
               <Nav.Link
@@ -52,7 +89,8 @@ const HeaderUser = (props) => {
             ) : (
               <Nav.Link
                 href={"./pemesananuser"}
-                style={{ marginRight: "30px" }}>
+                style={{ marginRight: "30px" }}
+              >
                 <FaInfo style={{ marginRight: "5px" }} />
                 Info order
               </Nav.Link>
@@ -69,7 +107,8 @@ const HeaderUser = (props) => {
             ) : (
               <Nav.Link
                 href={"./pemesananuser"}
-                style={{ marginRight: "30px" }}>
+                style={{ marginRight: "30px" }}
+              >
                 <FaClipboard style={{ marginRight: "5px" }} />
                 Pemesanan
               </Nav.Link>
@@ -78,14 +117,13 @@ const HeaderUser = (props) => {
               <Nav.Link
                 active
                 href={"./usergedung"}
-                style={{ marginRight: "30px" }}>
+                style={{ marginRight: "30px" }}
+              >
                 <FaBuilding style={{ marginRight: "5px" }} />
                 Gedung
               </Nav.Link>
             ) : (
-              <Nav.Link
-                href={"./usergedung"}
-                style={{ marginRight: "30px" }}>
+              <Nav.Link href={"./usergedung"} style={{ marginRight: "30px" }}>
                 <FaBuilding style={{ marginRight: "5px" }} />
                 Gedung
               </Nav.Link>
@@ -94,14 +132,13 @@ const HeaderUser = (props) => {
               <Nav.Link
                 active
                 href={"./usercatering"}
-                style={{ marginRight: "30px" }}>
+                style={{ marginRight: "30px" }}
+              >
                 <FaUtensils style={{ marginRight: "5px" }} />
                 Catering
               </Nav.Link>
             ) : (
-              <Nav.Link
-                href={"./usercatering"}
-                style={{ marginRight: "30px" }}>
+              <Nav.Link href={"./usercatering"} style={{ marginRight: "30px" }}>
                 <FaUtensils style={{ marginRight: "5px" }} />
                 Catering
               </Nav.Link>
@@ -128,19 +165,22 @@ const HeaderUser = (props) => {
                 style={{ marginRight: "10px" }}
               >
                 <FaFax style={{ marginRight: "5px" }} />
-                Contact</Nav.Link>
+                Contact
+              </Nav.Link>
             ) : (
-              <Nav.Link
-                href={"./usercontact"} style={{ marginRight: "10px" }}>
+              <Nav.Link href={"./usercontact"} style={{ marginRight: "10px" }}>
                 <FaFax style={{ marginRight: "5px" }} />
                 Contact
-              </Nav.Link>)
-            }
+              </Nav.Link>
+            )}
             <Nav.Link
-              onClick={(v) => hideModal({
-                isShow: true
-              })}
-              style={{ marginRight: "30px" }}>
+              onClick={(v) =>
+                hideModal({
+                  isShow: true,
+                })
+              }
+              style={{ marginRight: "30px" }}
+            >
               <FaSignOutAlt style={{ marginRight: "5px" }} />
               Logout
             </Nav.Link>
@@ -153,9 +193,7 @@ const HeaderUser = (props) => {
                 <FaUser style={{ marginRight: "5px" }} />
               </Nav.Link>
             ) : (
-              <Nav.Link
-                href={"./formdatauser"}
-                style={{ marginRight: "30px" }}>
+              <Nav.Link href={"./formdatauser"} style={{ marginRight: "30px" }}>
                 <FaUser style={{ marginRight: "5px" }} />
               </Nav.Link>
             )}

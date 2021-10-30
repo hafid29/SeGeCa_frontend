@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
+import ClipLoader from "react-spinners/ClipLoader";
 import { connect } from "react-redux";
+
+// custom componnet
 import LoginImage from "../../assets/login_image.jpeg";
 import { Link, Redirect } from "react-router-dom";
 import { LoginAction } from "../../redux/action/actionLogin";
 
 const LoginView = (props) => {
-  
   const [session, setSession] = useState({
     isAvailable: false,
     role_name: "",
@@ -15,6 +17,7 @@ const LoginView = (props) => {
   React.useEffect(() => {
     const obj = JSON.parse(localStorage.getItem("user_session"));
     if (obj == null) {
+      console.log(session);
     } else if (obj.role_name == "USER") {
       setSession({
         isAvailable: true,
@@ -122,7 +125,15 @@ const LoginView = (props) => {
                     marginLeft: "20%",
                   }}
                 >
-                  Login
+                  {props.LoginState.isLoading == true ? (
+                    <ClipLoader
+                      color={"white"}
+                      loading={props.LoginState.isLoading}
+                      size={20}
+                    />
+                  ) : (
+                    "Login"
+                  )}
                 </Button>
                 <Button
                   variant="primary"

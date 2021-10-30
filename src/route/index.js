@@ -21,7 +21,9 @@ import {
   AdminGedung,
   AdminCatering,
   HalamanOrderGedung1,
-  HalamanOrderCatering1
+  HalamanOrderCatering1,
+  PemesananUser,
+  InfoOrder
 } from "../view";
 const Routes = () => {
   return (
@@ -75,6 +77,12 @@ const Routes = () => {
         </Route>
         <Route path="/halamanordercatering1">
           <HalamanOrderCatering1></HalamanOrderCatering1>
+        </Route>
+        <Route path="/pemesananuser">
+          <PemesananUser></PemesananUser>
+        </Route>
+        <Route path="/infoorder">
+          <InfoOrder></InfoOrder>
         </Route>
       </Switch>
     </Provider>

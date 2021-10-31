@@ -77,10 +77,10 @@ const HeaderUser = (props) => {
                 Home
               </Nav.Link>
             )}
-            {path == "/pemesananuser" ? (
+            {path == "/infoorder" ? (
               <Nav.Link
                 active
-                href={"./pemesananuser"}
+                href={"./infoorder"}
                 style={{ marginRight: "30px" }}
               >
                 <FaInfo style={{ marginRight: "5px" }} />
@@ -88,7 +88,7 @@ const HeaderUser = (props) => {
               </Nav.Link>
             ) : (
               <Nav.Link
-                href={"./pemesananuser"}
+                href={"./infoorder"}
                 style={{ marginRight: "30px" }}
               >
                 <FaInfo style={{ marginRight: "5px" }} />

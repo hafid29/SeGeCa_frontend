@@ -35,11 +35,6 @@ const PemesananUser = () => {
                                     <td>:</td>
                                     <td>Parker</td>
 
-                                    <th>Password</th>
-                                    <td>:</td>
-                                    <td>Parker</td>
-                                </tr>
-                                <tr>
                                     <th>No Telepon</th>
                                     <td>:</td>
                                     <td>Parker</td>

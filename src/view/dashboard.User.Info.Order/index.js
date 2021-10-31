@@ -1,10 +1,12 @@
 import { Row, Col, Container, Card } from 'react-bootstrap'
 import { HeaderUser, FooterUser } from '../../component'
-import Home from '../../assets/image_gedung.jpeg'
+import { useLocation } from "react-router-dom";
+import Info from '../../assets/bg_infoorder.jpeg'
 const InfoOrder = () => {
+    const pathName = useLocation();
     return (
         <>
-            <HeaderUser>
+            <HeaderUser pathName={pathName.pathname}>
             </HeaderUser>
             <Container>
                 <Card>
@@ -12,12 +14,11 @@ const InfoOrder = () => {
                 </Card>
                 <Card className="bg-dark text-white">
 
-                    <Card.Img src={Home} alt="Card image" />
+                    <Card.Img src={Info} alt="Card image" />
                     <Card.ImgOverlay>
-                        <Card.Title>Card title</Card.Title>
+                        <Card.Title>Info Order</Card.Title>
                         <Card.Text>
-                            This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.
+                            User harap mengisi data terlebih dahulu
                         </Card.Text>
                         <Card.Text>Last updated 3 mins ago</Card.Text>
                     </Card.ImgOverlay>

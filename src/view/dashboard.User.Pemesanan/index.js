@@ -51,7 +51,7 @@ const PemesananUser = () => {
                             </tbody>
                             <Button variant="danger"><FaTrash style={{ marginRight: "5px" }} />Hapus</Button>
                         </Table>
-                        <Button variant="primary">Lakukan Checkout Pemesanan</Button>
+                        <Button variant="primary" href={'./transaksi'}>Lakukan Checkout Pemesanan</Button>
                     </Card.Body>
                     <Card.Footer className="text-muted">2 days ago</Card.Footer>
                 </Card>

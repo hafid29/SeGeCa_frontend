@@ -16,6 +16,7 @@ import HalamanOrderGedung1 from "./dashboard.User.Halaman.Pesan.Gedung.1";
 import HalamanOrderCatering1 from "./dashboard.User.Halaman.Pesan.Catering.1";
 import PemesananUser from "./dashboard.User.Pemesanan";
 import InfoOrder from "./dashboard.User.Info.Order";
+import Transaksi from "./dashboard.User.Transaksi";
 
 export {
   Login,
@@ -35,5 +36,6 @@ export {
   HalamanOrderGedung1,
   HalamanOrderCatering1,
   PemesananUser,
-  InfoOrder
+  InfoOrder,
+  Transaksi
 };

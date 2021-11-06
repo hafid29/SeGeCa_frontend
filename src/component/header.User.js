@@ -77,24 +77,6 @@ const HeaderUser = (props) => {
                 Home
               </Nav.Link>
             )}
-            {path == "/infoorder" ? (
-              <Nav.Link
-                active
-                href={"./infoorder"}
-                style={{ marginRight: "30px" }}
-              >
-                <FaInfo style={{ marginRight: "5px" }} />
-                Info order
-              </Nav.Link>
-            ) : (
-              <Nav.Link
-                href={"./infoorder"}
-                style={{ marginRight: "30px" }}
-              >
-                <FaInfo style={{ marginRight: "5px" }} />
-                Info order
-              </Nav.Link>
-            )}
             {path == "/pemesananuser" ? (
               <Nav.Link
                 active
@@ -171,6 +153,24 @@ const HeaderUser = (props) => {
               <Nav.Link href={"./usercontact"} style={{ marginRight: "10px" }}>
                 <FaFax style={{ marginRight: "5px" }} />
                 Contact
+              </Nav.Link>
+            )}
+            {path == "/infoorder" ? (
+              <Nav.Link
+                active
+                href={"./infoorder"}
+                style={{ marginRight: "30px" }}
+              >
+                <FaInfo style={{ marginRight: "5px" }} />
+                Cara Order
+              </Nav.Link>
+            ) : (
+              <Nav.Link
+                href={"./infoorder"}
+                style={{ marginRight: "30px" }}
+              >
+                <FaInfo style={{ marginRight: "5px" }} />
+                Cara Order
               </Nav.Link>
             )}
             <Nav.Link

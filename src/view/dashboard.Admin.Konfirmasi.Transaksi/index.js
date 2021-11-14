@@ -21,9 +21,9 @@ import {
     SubMenu,
 } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaGoogle, FaWhatsapp, FaSearch, FaUser, FaEdit, FaTrash, FaHome, FaSignOutAlt, FaRegBuilding, FaCheck } from "react-icons/fa";
-const AdminGedung = () => {
+const KonfirmasiTransaksi = () => {
     const [modal, hideModal] = useState({
         isShow: false,
     });
@@ -32,6 +32,7 @@ const AdminGedung = () => {
             isShow: false,
         });
     };
+
     return (
         <>
             {modal.isShow == false ? (
@@ -116,18 +117,16 @@ const AdminGedung = () => {
                     </Row>
                 </Col>
                 <Col style={{ marginLeft: "50px", marginTop: "4px" }}>
-
-
                     {/* Row Jumlah transaksi */}
                     <Row>
-                        <Card.Header as="h2" className="p-3 mb-2 bg-info text-Dark text-center">
-                            Daftar Gedung
+                        <Card.Header as="h2" className="p-3 mb-2 bg-primary text-white text-center">
+                            Konfirmasi Transaksi
                         </Card.Header>
                         <Col md="auto">
-                            <Form.Control placeholder="Search Building" />
+                            <Form.Control placeholder="Search Transaksi User" />
                         </Col>
                         <Col>
-                            <Button variant="info"><FaSearch className="text-white"></FaSearch></Button>
+                            <Button variant="success"><FaSearch className="text-white"></FaSearch></Button>
                         </Col>
                     </Row>
                     <Row style={{ marginTop: "40px" }}>
@@ -136,27 +135,24 @@ const AdminGedung = () => {
                                 <thead>
                                     <tr className="text-center">
                                         <th>id</th>
-                                        <th>building_name</th>
-                                        <th>price</th>
-                                        <th>building_address</th>
-                                        <th>type_name</th>
+                                        <th>Nama User</th>
+                                        <th>Nama Gedung</th>
+                                        <th>Nama Catering</th>
+                                        <th>Status</th>
                                         <th>actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>Islamic Center</td>
-                                        <td>100.000</td>
-                                        <td>Bojonegoro</td>
-                                        <td>engagement</td>
+                                        <td>Segeca</td>
+                                        <td>Islamic</td>
+                                        <td>Djenggot</td>
+                                        <td>Lunas</td>
                                         <td>
                                             <Row className="text-center">
                                                 <Col>
-                                                    <Button><FaEdit></FaEdit></Button>
-                                                </Col>
-                                                <Col>
-                                                    <Button variant="danger"><FaTrash></FaTrash></Button>
+                                                    <Button variant="success"><FaCheck ></FaCheck></Button>
                                                 </Col>
                                             </Row>
                                         </td>
@@ -176,7 +172,8 @@ const AdminGedung = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 </Navbar>
             </Row>
+            {/* Container parent end */}
         </>
-    )
-}
-export default AdminGedung
+    );
+};
+export default KonfirmasiTransaksi;

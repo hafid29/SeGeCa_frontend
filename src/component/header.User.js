@@ -13,7 +13,8 @@ import {
   FaSignOutAlt,
   FaUser,
   FaInfo,
-  FaList
+  FaList,
+  FaServicestack
 } from "react-icons/fa";
 // import Modals from "./modal";
 
@@ -36,7 +37,7 @@ const HeaderUser = (props) => {
           <Modal.Header closeButton>
             <Modal.Title>Anda yakin untuk logout ?</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Wes mbok pastik o?</Modal.Body>
+          <Modal.Body>Pilih Oke Keluar</Modal.Body>
           <Modal.Footer>
             <Link
               to="/"
@@ -96,7 +97,11 @@ const HeaderUser = (props) => {
                 Pemesanan
               </Nav.Link>
             )}
-            <NavDropdown title="Layanan" id="basic-nav-dropdown" style={{ marginRight: "30px" }} >
+            <NavDropdown title={
+              <span>
+                <FaList/> Layanan
+              </span>
+            } id="basic-nav-dropdown" style={{ marginRight: "30px" }} >
               {path == "/usergedung" ? (
                 <NavDropdown.Item
                   active
@@ -129,7 +134,11 @@ const HeaderUser = (props) => {
                 </NavDropdown.Item>
               )}
             </NavDropdown>
-            <NavDropdown title="Info" id="basic-nav-dropdown" style={{ marginRight: "30px" }} >
+            <NavDropdown title={
+              <span>
+                <FaInfo/> Informasi
+              </span>
+            } id="basic-nav-dropdown" style={{ marginRight: "30px" }} >
               {path == "/userabout" ? (
                 <NavDropdown.Item
                   active
@@ -181,7 +190,12 @@ const HeaderUser = (props) => {
                 </NavDropdown.Item>
               )}
             </NavDropdown>
-            <NavDropdown title="Action" id="basic-nav-dropdown" style={{ marginRight: "30px" }} >
+            <NavDropdown title={
+              <span>
+                <FaUser/> User
+              </span>
+            }
+              id='collasible-nav-dropdown' id="basic-nav-dropdown" style={{ marginRight: "30px" }} >
               <NavDropdown.Item
                 onClick={(v) =>
                   hideModal({
@@ -201,10 +215,12 @@ const HeaderUser = (props) => {
                   style={{ marginRight: "30px" }}
                 >
                   <FaUser style={{ marginRight: "5px" }} />
+                  Data
                 </NavDropdown.Item>
               ) : (
                 <NavDropdown.Item href={"./formdatauser"} style={{ marginRight: "30px" }}>
                   <FaUser style={{ marginRight: "5px" }} />
+                  Data
                 </NavDropdown.Item>
               )}
             </NavDropdown>

@@ -24,7 +24,9 @@ import {
   HalamanOrderCatering1,
   PemesananUser,
   InfoOrder,
-  Transaksi
+  Transaksi,
+  HistoryTransaksi,
+  KonfirmasiTransaksi
 } from "../view";
 const Routes = () => {
   return (
@@ -87,6 +89,12 @@ const Routes = () => {
         </Route>
         <Route path="/transaksi">
           <Transaksi></Transaksi>
+        </Route>
+        <Route path="/history">
+          <HistoryTransaksi></HistoryTransaksi>
+        </Route>
+        <Route path="/konfirmasi">
+          <KonfirmasiTransaksi></KonfirmasiTransaksi>
         </Route>
       </Switch>
     </Provider>

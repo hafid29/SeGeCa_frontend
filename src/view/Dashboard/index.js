@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import {
   Form,
   Button,
@@ -8,6 +9,8 @@ import {
   NavDropdown,
   Card,
   Nav,
+  Table,
+  Modal
 } from "react-bootstrap";
 import {
   ProSidebar,
@@ -21,18 +24,68 @@ import "react-pro-sidebar/dist/css/styles.css";
 import { Bar } from "react-chartjs-2";
 import { DumyData } from "./dumy.datas.js";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { FaFacebook, FaTwitter, FaGoogle, FaWhatsapp, FaSearch, FaUser, FaEdit, FaTrash, FaHome, FaSignOutAlt, FaRegBuilding, FaCheck } from "react-icons/fa";
 const ViewDashboard = () => {
+  const [modal, hideModal] = useState({
+    isShow: false,
+  });
+  const HandleHide = () => {
+    hideModal({
+      isShow: false,
+    });
+  };
   return (
     <>
+      {modal.isShow == false ? (
+        ""
+      ) : (
+        <Modal show={modal} onHide={HandleHide}>
+          <Modal.Header closeButton>
+            <Modal.Title>Anda yakin untuk logout ?</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Pilih Oke Keluar</Modal.Body>
+          <Modal.Footer>
+            <Link
+              to="/"
+              className="btn btn-primary"
+              onClick={() => {
+                localStorage.clear();
+              }}
+            >
+              Oke
+            </Link>
+          </Modal.Footer>
+        </Modal>
+      )}
       <Row>
-        <Navbar bg="primary">
-          <Navbar.Brand href="./dashboard">Navbar with text</Navbar.Brand>
+        <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
+          <Navbar.Brand className="text-center">
+            <FaRegBuilding style={{ marginRight: "10px" }} />
+            SEGECA
+          </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
-            <Navbar.Text>
-              Signed in as: <a href="#login">Mark Otto</a>
-            </Navbar.Text>
           </Navbar.Collapse>
+          <Nav className="text-white">
+            <NavDropdown title={
+              <span>
+                <FaUser /> Admin
+              </span>
+            }
+              id='collasible-nav-dropdown' id="basic-nav-dropdown" style={{ marginRight: "30px" }} >
+              <NavDropdown.Item
+                onClick={(v) =>
+                  hideModal({
+                    isShow: true,
+                  })
+                }
+                style={{ marginRight: "30px" }}
+              >
+                <FaSignOutAlt style={{ marginRight: "5px" }} />
+                Logout
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
         </Navbar>
         <Col md={2}>
           {/* Death row */}
@@ -47,16 +100,16 @@ const ViewDashboard = () => {
               >
                 <Menu iconShape="circle">
                   <SubMenu title="Menejemen Gedung">
-                    <MenuItem>Tambah Gedung<Link to="./tambahgedung"/></MenuItem>
-                    <MenuItem>Daftar Gedung<Link to="./admingedung"/></MenuItem>
+                    <MenuItem>Tambah Gedung<Link to="./tambahgedung" /></MenuItem>
+                    <MenuItem>Daftar Gedung<Link to="./admingedung" /></MenuItem>
                   </SubMenu>
                   <SubMenu title="Menejemen Catering">
-                    <MenuItem>Tambah Catering<Link to="./tambahcatering"/></MenuItem>
-                    <MenuItem>Daftar Catering<Link to="./admincatering"/></MenuItem>
+                    <MenuItem>Tambah Catering<Link to="./tambahcatering" /></MenuItem>
+                    <MenuItem>Daftar Catering<Link to="./admincatering" /></MenuItem>
                   </SubMenu>
                   <SubMenu title="Transaksi">
-                    <MenuItem>History Transaksi</MenuItem>
-                    <MenuItem>Konfirmasi Transaksi</MenuItem>
+                    <MenuItem>History Transaksi<Link to="./history" /></MenuItem>
+                    <MenuItem>Konfirmasi Transaksi<Link to="./konfirmasi" /></MenuItem>
                   </SubMenu>
                 </Menu>
                 <SidebarFooter></SidebarFooter>

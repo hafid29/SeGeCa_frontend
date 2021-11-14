@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import {
   Form,
   Button,
@@ -8,6 +9,8 @@ import {
   NavDropdown,
   Card,
   Nav,
+  Table,
+  Modal
 } from "react-bootstrap";
 import {
   ProSidebar,
@@ -18,19 +21,69 @@ import {
   SubMenu,
 } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { FaFacebook, FaTwitter, FaGoogle, FaWhatsapp, FaSearch, FaUser, FaEdit, FaTrash, FaHome, FaSignOutAlt, FaRegBuilding, FaCheck } from "react-icons/fa";
 const TambahGedung = () => {
+  const [modal, hideModal] = useState({
+    isShow: false,
+  });
+  const HandleHide = () => {
+    hideModal({
+      isShow: false,
+    });
+  };
   return (
     <>
+      {modal.isShow == false ? (
+        ""
+      ) : (
+        <Modal show={modal} onHide={HandleHide}>
+          <Modal.Header closeButton>
+            <Modal.Title>Anda yakin untuk logout ?</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Pilih Oke Keluar</Modal.Body>
+          <Modal.Footer>
+            <Link
+              to="/"
+              className="btn btn-primary"
+              onClick={() => {
+                localStorage.clear();
+              }}
+            >
+              Oke
+            </Link>
+          </Modal.Footer>
+        </Modal>
+      )}
       <Row>
-        <Navbar bg="primary">
-          <Navbar.Brand href="./dashboard">Navbar with text</Navbar.Brand>
+        <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
+          <Navbar.Brand className="text-center">
+            <FaRegBuilding style={{ marginRight: "10px" }} />
+            SEGECA
+          </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
-            <Navbar.Text>
-              Signed in as: <a href="#login">Mark Otto</a>
-            </Navbar.Text>
           </Navbar.Collapse>
+          <Nav className="text-white">
+            <NavDropdown title={
+              <span>
+                <FaUser /> Admin
+              </span>
+            }
+              id='collasible-nav-dropdown' id="basic-nav-dropdown" style={{ marginRight: "30px" }} >
+              <NavDropdown.Item
+                onClick={(v) =>
+                  hideModal({
+                    isShow: true,
+                  })
+                }
+                style={{ marginRight: "30px" }}
+              >
+                <FaSignOutAlt style={{ marginRight: "5px" }} />
+                Logout
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
         </Navbar>
         <Col md={2}>
           {/* Death row */}
@@ -49,12 +102,12 @@ const TambahGedung = () => {
                     <MenuItem>Daftar Gedung<Link to="./admingedung" /></MenuItem>
                   </SubMenu>
                   <SubMenu title="Menejemen Catering">
-                    <MenuItem>Tambah Catering<Link to="./tambahcatering"/></MenuItem>
-                    <MenuItem>Daftar Catering<Link to="./admincatering"/></MenuItem>
+                    <MenuItem>Tambah Catering<Link to="./tambahcatering" /></MenuItem>
+                    <MenuItem>Daftar Catering<Link to="./admincatering" /></MenuItem>
                   </SubMenu>
                   <SubMenu title="Transaksi">
-                    <MenuItem>History Transaksi</MenuItem>
-                    <MenuItem>Konfirmasi Transaksi</MenuItem>
+                    <MenuItem>History Transaksi<Link to="./history" /></MenuItem>
+                    <MenuItem>Konfirmasi Transaksi<Link to="./konfirmasi" /></MenuItem>
                   </SubMenu>
                 </Menu>
                 <SidebarFooter></SidebarFooter>
@@ -77,7 +130,13 @@ const TambahGedung = () => {
                 <Row className="mb-3">
                   <Form.Group as={Col}>
                     <Form.Label>Nama Bangunan</Form.Label>
-                    <Form.Control type="text" placeholder="Nama Gedung" />
+                    <Form.Control type="text" placeholder="Masukkan Nama Gedung" />
+                  </Form.Group>
+                </Row>
+                <Row className="mb-3">
+                  <Form.Group as={Col}>
+                    <Form.Label>Harga Sewa</Form.Label>
+                    <Form.Control type="number" placeholder="Masukkan Harga" />
                   </Form.Group>
                 </Row>
                 {/*  */}

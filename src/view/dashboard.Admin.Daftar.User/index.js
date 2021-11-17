@@ -21,9 +21,10 @@ import {
     SubMenu,
 } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaGoogle, FaWhatsapp, FaSearch, FaUser, FaEdit, FaTrash, FaHome, FaSignOutAlt, FaRegBuilding, FaCheck } from "react-icons/fa";
-const AdminGedung = () => {
+import axios from "axios";
+const DaftarUser = () => {
     const [modal, hideModal] = useState({
         isShow: false,
     });
@@ -64,26 +65,6 @@ const AdminGedung = () => {
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                     </Navbar.Collapse>
-                    <Nav className="text-white">
-                        <NavDropdown title={
-                            <span>
-                                <FaUser /> Admin
-                            </span>
-                        }
-                            id='collasible-nav-dropdown' id="basic-nav-dropdown" style={{ marginRight: "30px" }} >
-                            <NavDropdown.Item
-                                onClick={(v) =>
-                                    hideModal({
-                                        isShow: true,
-                                    })
-                                }
-                                style={{ marginRight: "30px" }}
-                            >
-                                <FaSignOutAlt style={{ marginRight: "5px" }} />
-                                Logout
-                            </NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav>
                 </Navbar>
                 <Col md={2}>
                     {/* Death row */}
@@ -117,15 +98,12 @@ const AdminGedung = () => {
                     </Row>
                 </Col>
                 <Col style={{ marginLeft: "50px", marginTop: "4px" }}>
-
-
-                    {/* Row Jumlah transaksi */}
                     <Row>
                         <Card.Header as="h2" className="p-3 mb-2 bg-info text-Dark text-center">
-                            Daftar Gedung
+                            Daftar User
                         </Card.Header>
                         <Col md="auto">
-                            <Form.Control placeholder="Search Building" />
+                            <Form.Control placeholder="Search User" />
                         </Col>
                         <Col>
                             <Button variant="info"><FaSearch className="text-white"></FaSearch></Button>
@@ -134,19 +112,18 @@ const AdminGedung = () => {
                     <Row style={{ marginTop: "40px" }}>
                         <Col style={{ marginLeft: "4px" }}>
                             <Table striped bordered hover variant="dark">
+
                                 <thead>
                                     <tr className="text-center">
                                         <th>id</th>
-                                        <th>building_name</th>
-                                        <th>price</th>
-                                        <th>building_address</th>
-                                        <th>type_name</th>
-                                        <th>actions</th>
+                                        <th>Username</th>
+                                        <th>Password</th>
+                                        <th>User_Role</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>1</td>
+                                        <td></td>
                                         <td>Islamic Center</td>
                                         <td>100.000</td>
                                         <td>Bojonegoro</td>
@@ -177,7 +154,8 @@ const AdminGedung = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 </Navbar>
             </Row>
+            {/* Container parent end */}
         </>
-    )
-}
-export default AdminGedung
+    );
+};
+export default DaftarUser;

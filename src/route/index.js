@@ -26,7 +26,8 @@ import {
   InfoOrder,
   Transaksi,
   HistoryTransaksi,
-  KonfirmasiTransaksi
+  KonfirmasiTransaksi,
+  DaftarUser
 } from "../view";
 const Routes = () => {
   return (
@@ -95,6 +96,9 @@ const Routes = () => {
         </Route>
         <Route path="/konfirmasi">
           <KonfirmasiTransaksi></KonfirmasiTransaksi>
+        </Route>
+        <Route path="/daftaruser">
+          <DaftarUser></DaftarUser>
         </Route>
       </Switch>
     </Provider>

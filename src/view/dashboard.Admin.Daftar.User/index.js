@@ -21,10 +21,12 @@ import {
     SubMenu,
 } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
+import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaGoogle, FaWhatsapp, FaSearch, FaUser, FaEdit, FaTrash, FaHome, FaSignOutAlt, FaRegBuilding, FaCheck } from "react-icons/fa";
-import axios from "axios";
-const DaftarUser = () => {
+import { GetUser } from "../../redux/action/actionUser";
+import axios from 'axios';
+const DaftarUser = (props) => {
     const [modal, hideModal] = useState({
         isShow: false,
     });
@@ -33,6 +35,37 @@ const DaftarUser = () => {
             isShow: false,
         });
     };
+    const [userDetail, setUserDetail] = useState({
+        no_telp: 0,
+        photo_profile: null,
+        first_name: null,
+        last_name: "",
+        user_id: 0,
+    });
+    const getUser = (user) => {
+        props.ActionGetUser(user);
+      };
+    React.useEffect(async () => {
+        const obj = JSON.parse(localStorage.getItem("user_session"));
+        if (obj == null) {
+          setUserDetail({
+            no_telp: 0,
+            photo_profile: null,
+            first_name: null,
+            last_name: "",
+            user_id: 0,
+          });
+        }
+        setUserDetail({
+          ...userDetail,
+          first_name: obj.first_name,
+          user_id: obj.userId,
+        });
+
+        // load data dari API, ketika halman di akses
+        await getUser(obj.userId);
+      }, []);
+
     return (
         <>
             {modal.isShow == false ? (
@@ -116,18 +149,22 @@ const DaftarUser = () => {
                                 <thead>
                                     <tr className="text-center">
                                         <th>id</th>
-                                        <th>Username</th>
-                                        <th>Password</th>
-                                        <th>User_Role</th>
+                                        <th>username</th>
+                                        <th>password</th>
+                                        <th>first_name</th>
+                                        <th>last_name</th>
+                                        <th>telp</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td></td>
-                                        <td>Islamic Center</td>
-                                        <td>100.000</td>
-                                        <td>Bojonegoro</td>
-                                        <td>engagement</td>
+                                        <td>{props.stateGetUser.user_id}1</td>
+                                        <td>{props.stateGetUser.username}segeca</td>
+                                        <td>{props.stateGetUser.password}hghjfskg</td>
+                                        <td>{props.stateGetUser.first_name}optimus</td>
+                                        <td>{props.stateGetUser.last_name}pride</td>
+                                        <td>{props.stateGetUser.no_telp}08xxxxxxx</td>
                                         <td>
                                             <Row className="text-center">
                                                 <Col>
@@ -158,4 +195,17 @@ const DaftarUser = () => {
         </>
     );
 };
-export default DaftarUser;
+
+const mapStateProps = (state) => {
+    return {
+        stateGetUser: state.GetUserReducer,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        ActionGetUser: (user) => dispatch(GetUser(user)),
+    };
+};
+
+export default connect(mapStateProps, mapDispatchToProps)(DaftarUser);

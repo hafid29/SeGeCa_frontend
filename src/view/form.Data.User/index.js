@@ -60,7 +60,7 @@ const FormDataUser = (props) => {
         <br />
         <Form
           onSubmit={(e) =>
-            userDetail.first_name == null
+            userDetail.defaultValue == null
               ? HandleFormAddData(e)
               : HandleFormEdit(e)
           }
@@ -138,10 +138,11 @@ const FormDataUser = (props) => {
             </Form.Group>
           </Row>
           <Row sm={3}>
-            <Form.Group className="mb-3">
+            <Form.Group className="mb-3" >
               <Form.Label>Foto</Form.Label>
               <input
                 type="file"
+                defaultValue={props.stateGetUserById.photo_profile}
                 className="form-control"
                 sm={3}
                 onChange={(v) =>
@@ -157,7 +158,7 @@ const FormDataUser = (props) => {
           <Button href={"/dashboarduser"} size="lg" className="mb-3">
             Kembali
           </Button>
-          {userDetail.first_name == null ? (
+          {userDetail.defaultValue == null ? (
             <Button
               style={{ marginLeft: "10px" }}
               className="mb-3"

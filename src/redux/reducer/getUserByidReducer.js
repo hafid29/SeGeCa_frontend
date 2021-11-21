@@ -11,6 +11,7 @@ const initState = {
     first_name: null,
     last_name: null,
     no_telp: 0,
+    photo_profile: null
   },
 };
 export default (state = initState, action) => {
@@ -28,6 +29,7 @@ export default (state = initState, action) => {
         first_name: action.payload.first_name,
         last_name: action.payload.last_name,
         no_telp: action.payload.no_telp,
+        photo_profile: action.payload.photo_profile,
       };
     case PROCESS_GET_USER_FAILED:
       return {

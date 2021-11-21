@@ -19,6 +19,7 @@ import InfoOrder from "./dashboard.User.Info.Order";
 import Transaksi from "./dashboard.User.Transaksi";
 import HistoryTransaksi from "./dashboard.Admin.History.Transaksi";
 import KonfirmasiTransaksi from "./dashboard.Admin.Konfirmasi.Transaksi";
+import DaftarUser from "./dashboard.Admin.Daftar.User";
 
 export {
   Login,
@@ -41,5 +42,6 @@ export {
   InfoOrder,
   Transaksi,
   HistoryTransaksi,
-  KonfirmasiTransaksi 
+  KonfirmasiTransaksi,
+  DaftarUser,
 };

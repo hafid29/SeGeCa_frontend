@@ -18,10 +18,13 @@ export const GetUser = (user) => (dispatch) => {
     })
         .then((res) => {
             console.log(res.data.data);
-            const { first_name, last_name, phone_number } = res.data.data[0];
+            const { first_name, last_name, phone_number, username, password, user_id } = res.data.data[0];
             return dispatch({
                 type: SUCCESS_DATA_USER,
                 payload: {
+                    user_id:user_id,
+                    username: username,
+                    password: password,
                     first_name: first_name,
                     last_name: last_name,
                     no_telp: phone_number,

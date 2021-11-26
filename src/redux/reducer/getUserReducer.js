@@ -9,6 +9,9 @@ const initState = {
     isLoading: false,
     isAlert: false,
     data: {
+        user_id: 0,
+        username: null,
+        password: null,
         first_name: null,
         last_name: null,
         no_telp: 0,
@@ -26,6 +29,8 @@ export default (state = initState, action) => {
                 isLoading: false,
                 isAlert: true,
                 ...state.data,
+                username: action.payload.username,
+                password: action.payload.password,
                 first_name: action.payload.first_name,
                 last_name: action.payload.last_name,
                 no_telp: action.payload.no_telp,

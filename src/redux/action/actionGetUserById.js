@@ -20,13 +20,15 @@ export const GetUserById = (user_id) => (dispatch) => {
     .then((res) => {
       // debug
       console.log(res.data.data)
-      const { first_name, last_name, phone_number } = res.data.data[0];
+      const { first_name, last_name, phone_number,photo_profile,image_url } = res.data.data[0];
       return dispatch({
         type: PROCESS_GET_USER_SUCCESS,
         payload: {
           first_name: first_name,
           last_name: last_name,
           no_telp: phone_number,
+          photo_profile: photo_profile,
+          image_url:image_url,
         },
       });
     })

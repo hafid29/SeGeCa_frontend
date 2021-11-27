@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
+import { Form, Button, Container, Row, Col, Alert,Image } from "react-bootstrap";
 import { HeaderUser, FooterUser } from "../../component";
 import ClipLoader from "react-spinners/ClipLoader";
 import { connect } from "react-redux";
@@ -47,6 +47,7 @@ const FormDataUser = (props) => {
   };
   const HandleFormEdit = (e) => {
     e.preventDefault();
+    console.log("Run");
   };
 
   const pathName = useLocation();
@@ -60,7 +61,7 @@ const FormDataUser = (props) => {
         <br />
         <Form
           onSubmit={(e) =>
-            userDetail.defaultValue == null
+            props.stateGetUserById.first_name == null
               ? HandleFormAddData(e)
               : HandleFormEdit(e)
           }
@@ -138,27 +139,44 @@ const FormDataUser = (props) => {
             </Form.Group>
           </Row>
           <Row sm={3}>
-            <Form.Group className="mb-3" >
-              <Form.Label>Foto</Form.Label>
-              <input
-                type="file"
-                defaultValue={props.stateGetUserById.photo_profile}
-                className="form-control"
-                sm={3}
-                onChange={(v) =>
-                  setUserDetail({
-                    ...userDetail,
-                    photo_profile: v.target.files[0],
-                  })
-                }
-              />
+            <Form.Group className="mb-3">
+              {/* TODO: Buat kondisi jika data ada maka jadi picture */}
+              {props.stateGetUserById.isLoading == true ? (
+                <ClipLoader
+                  color={"black"}
+                  loading={props.stateGetUserById.isLoading}
+                  size={10}
+                />
+              ) : (
+                <>
+                  <Form.Label>Foto</Form.Label>
+                  {props.stateGetUserById.photo_profile == null ? (
+                    <input
+                      type="file"
+                      className="form-control"
+                      sm={3}
+                      onChange={(v) =>
+                        setUserDetail({
+                          ...userDetail,
+                          photo_profile: v.target.files[0],
+                        })
+                      }
+                    />
+                  ) : (
+                    // TODO: Get photo profile from api
+                    <Image 
+                    style={{ height: 171, width: 180 }}
+                    src={props.stateGetUserById.image_url} roundedCircle />
+                  )}
+                </>
+              )}
             </Form.Group>
           </Row>
 
           <Button href={"/dashboarduser"} size="lg" className="mb-3">
             Kembali
           </Button>
-          {userDetail.defaultValue == null ? (
+          {props.stateGetUserById.first_name == null ? (
             <Button
               style={{ marginLeft: "10px" }}
               className="mb-3"

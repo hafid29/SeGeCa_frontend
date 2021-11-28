@@ -56,7 +56,7 @@ const HistoryTransaksi = () => {
                 </Modal>
             )}
             <Row>
-            <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
+                <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
                     <Navbar.Brand className="text-center">
                         <FaRegBuilding style={{ marginRight: "10px" }} />
                         SEGECA
@@ -89,6 +89,10 @@ const HistoryTransaksi = () => {
                                         <MenuItem>History Transaksi<Link to="./history" /></MenuItem>
                                         <MenuItem>Konfirmasi Transaksi<Link to="./konfirmasi" /></MenuItem>
                                     </SubMenu>
+                                    <MenuItem>
+                                        Data User
+                                        <Link to="./daftaruser" />
+                                    </MenuItem>
                                 </Menu>
                                 <SidebarFooter></SidebarFooter>
                             </ProSidebar>

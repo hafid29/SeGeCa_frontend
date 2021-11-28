@@ -6,6 +6,7 @@ import registerReducer from './registerReducer.js';
 import addUserDataReducer from './addUserDataReducer.js';
 import getUserByid from './getUserByidReducer.js'
 import getUser from './getUserReducer.js';
+import delUserById from './delUserByIdReducer.js';
 
 export default combineReducers({
     // Setiap ada reducer baru tambahkan disini
@@ -15,4 +16,5 @@ export default combineReducers({
     AddUserDataReducer : addUserDataReducer,
     GetUserByIdReducer: getUserByid,
     GetUserReducer: getUser,
+    DelUserById: delUserById,
 });

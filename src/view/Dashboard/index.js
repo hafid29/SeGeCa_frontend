@@ -111,6 +111,10 @@ const ViewDashboard = () => {
                     <MenuItem>History Transaksi<Link to="./history" /></MenuItem>
                     <MenuItem>Konfirmasi Transaksi<Link to="./konfirmasi" /></MenuItem>
                   </SubMenu>
+                  <MenuItem>
+                    Data User
+                    <Link to="./daftaruser" />
+                  </MenuItem>
                 </Menu>
                 <SidebarFooter></SidebarFooter>
               </ProSidebar>

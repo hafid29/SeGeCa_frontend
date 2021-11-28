@@ -4,4 +4,5 @@ import RegisterAction from './actionRegister'
 import ActionUserData from './actionUserData'
 import GetUserById from './actionGetUserById'
 import GetUser from './actionUser'
-export {LoginAction, RegisterAction,ActionUserData,GetUserById,GetUser}
+import DelUserById from './actionUser'
+export {LoginAction, RegisterAction,ActionUserData,GetUserById,GetUser,DelUserById}

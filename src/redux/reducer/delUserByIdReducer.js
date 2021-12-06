@@ -20,7 +20,7 @@ export default (state = initState, action) => {
         ...state,
         isLoading: false,
         isAlert: true,
-        message: action.payload.message
+        message: action.payload.message,
       };
     case PROCESS_DEL_USER_FAILED:
       return {

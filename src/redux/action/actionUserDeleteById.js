@@ -18,11 +18,11 @@ import {
       },
     })
     .then((res) => {
-        console.log(res.data.data);
+        console.log(res.data.message);
         return dispatch({
           type: PROCESS_DEL_USER_SUCCESS,
           payload: {
-            data: res.data.data,
+            message: "Data Berhasil di hapus",
           },
         });
       })

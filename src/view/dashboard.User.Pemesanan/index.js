@@ -129,9 +129,9 @@ const PemesananUser = (props) => {
                                             <td>{props.stateGetUserById.last_name}</td>
                                         </tr>,
                                         <tr>
-                                            <th>Username</th>
+                                            {/* <th>Username</th>
                                             <td>:</td>
-                                            <td>{props.stateGetUserById.username}</td>
+                                            <td>{props.stateGetUserById.username}</td> */}
 
                                             <th>No Telepon</th>
                                             <td>:</td>

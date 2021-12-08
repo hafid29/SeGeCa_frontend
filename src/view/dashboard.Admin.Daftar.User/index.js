@@ -25,6 +25,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { FaSearch, FaEdit, FaTrash, FaRegBuilding, FaUser, FaSignOutAlt } from "react-icons/fa";
 import { GetUser } from "../../redux/action/actionUser";
+import {DelUserById} from "../../redux/action/actionUserDeleteById"
 
 const DaftarUser = (props) => {
     const [modal, hideModal] = useState({
@@ -45,6 +46,16 @@ const DaftarUser = (props) => {
     const getUser = () => {
         props.ActionGetUser();
     };
+    const refesh = () => {
+if(alert("Berhasil Hapus")) {
+    window.location.reload()
+}else{
+	window.location.reload()
+}
+
+        //window.location.reload()
+
+    }
     React.useEffect(async () => {
         const obj = JSON.parse(localStorage.getItem("user_session"));
         if (obj == null) {
@@ -89,6 +100,7 @@ const DaftarUser = (props) => {
                     </Modal.Footer>
                 </Modal>
             )}
+{props.stateDelete.isAlert == false ? console.log("false") : refesh()}
             <Row>
                 <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
                     <Navbar.Brand className="text-center">
@@ -231,6 +243,7 @@ const DaftarUser = (props) => {
                                                                     variant="danger"
                                                                     onClick={(val) => {
                                                                         console.log("Hapus data id " + data.id);
+                                                                        props.ActionDelete(data.id)
                                                                     }}
                                                                 >
                                                                     <FaTrash></FaTrash>
@@ -265,12 +278,14 @@ const DaftarUser = (props) => {
 const mapStateProps = (state) => {
     return {
         stateGetUser: state.GetUserReducer,
+        stateDelete: state.DelUserById,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         ActionGetUser: () => dispatch(GetUser()),
+        ActionDelete: (id) => dispatch(DelUserById(id))
     };
 };
 

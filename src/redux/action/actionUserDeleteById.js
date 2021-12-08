@@ -1,35 +1,34 @@
 import {
-    PROCESS_DEL_USER_DETAIL,
-    PROCESS_DEL_USER_SUCCESS,
-    PROCESS_DEL_USER_FAILED,
-  } from "./action";
-  
-  import axios from "axios";
-  
-  export const DelUserById = (user_id) => (dispatch) => {
-    dispatch({ type: PROCESS_DEL_USER_DETAIL });
-  
-    return axios({
-      method: "DELETE",
-      baseURL: "http://localhost:8000/api/user",
-      url: "/" + user_id,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+  PROCESS_DEL_USER_DETAIL,
+  PROCESS_DEL_USER_SUCCESS,
+  PROCESS_DEL_USER_FAILED,
+} from "./action";
+
+import axios from "axios";
+
+export const DelUserById = (user_id) => (dispatch) => {
+  dispatch({ type: PROCESS_DEL_USER_DETAIL });
+
+  return axios({
+    method: "DELETE",
+    baseURL: "http://localhost:8000/api/user",
+    url: "/" + user_id,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
     .then((res) => {
-        console.log(res.data.message);
-        return dispatch({
-          type: PROCESS_DEL_USER_SUCCESS,
-          payload: {
-            message: "Data Berhasil di hapus",
-          },
-        });
-      })
-      .catch((err) => {
-        // debug error
-        console.log(err);
-        dispatch({ type: PROCESS_DEL_USER_FAILED });
+      console.log(res.data.message);
+      return dispatch({
+        type: PROCESS_DEL_USER_SUCCESS,
+        payload: {
+          message: "Data Berhasil di hapus",
+        },
       });
-  };
-  
+    })
+    .catch((err) => {
+      // debug error
+      console.log(err.data);
+      dispatch({ type: PROCESS_DEL_USER_FAILED });
+    });
+};
